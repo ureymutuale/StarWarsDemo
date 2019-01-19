@@ -1,0 +1,24 @@
+{ 
+  slack_url: "https://hooks.slack.com/services/xxxxxxx/xxxxxxxx/xxxxxxxxxxxx",
+  dist_signing_identity: "iPhone Distribution: ITC Provider Name",
+  dev_signing_identity: ,#"iPhone Developer",
+  apple_id: "myemail@domain.com",
+  xcode_select: '/Applications/Xcode.app',
+  workspace: "StarWars.xcworkspace",
+  xcode_project: "StarWars.xcodeproj",
+  targets: [
+    {
+      scheme: "StarWars", #XCode Target Name 
+      app_identifier: "com.ureymt.star-wars", #XCode Target Bundle id 
+      name: "StarWars",
+      company_name: "",
+      config: "Release", #Xcode Configuration: Debug, Release
+      environment: "Distribution", #App Environment: Development, Adhoc, Distribution
+      plist_path: "./StarWars/Supported Files/Info.plist", #Info Plist file path
+      team_id: "",
+      itc_team_id: "",
+      itc_provider: "",
+      skip: false, #Should skip Scheme
+    },
+  ]
+}

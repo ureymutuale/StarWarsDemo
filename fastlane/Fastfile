@@ -1,0 +1,639 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+
+require 'yaml'
+
+fastlane_version "1.82.0"
+
+default_platform :ios
+
+platform :ios do
+  
+  config = YAML.load(open(File.join(File.dirname(__FILE__), "fastlane_config.yaml")))
+  
+  const_workspace = config["workspace"]
+  const_xcode_project = config["xcode_project"]
+  const_team_id = config["team_id"]
+  const_itc_team_id = config["itc_team_id"]
+  const_dist_signing_identifier = config["dist_signing_identity"]
+  const_dev_signing_identifier = config["dev_signing_identity"]
+  const_builds_directory = "./fastlane/builds"
+  const_profiles_directory = "./fastlane/profiles"
+  const_push_certificates_directory = "./fastlane/push"
+  const_screenshots_directory = "./fastlane/screenshots"
+  const_certificates_directory = "./fastlane/certificates"
+
+  before_all do |lane, options|
+    ENV['DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS'] = '-t DAV'
+    ENV['FASTLANE_ITUNES_TRANSPORTER_USE_SHELL_SCRIPT'] = '1'
+    ENV["SLACK_URL"] = config["slack_url"]
+    ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = "120"
+    ENV['WORKSPACE'] = const_workspace
+    s_lane = lane_context[SharedValues::LANE_NAME] || ''
+    puts "Starting #{s_lane} lane"
+    if s_lane == 'ios new_build' or s_lane == 'ios new_testflight'
+      puts "UPDATE PODS"
+      sh "pod update"
+    end
+    if s_lane == 'ios new_build' or s_lane == 'ios new_push_certificate'
+      puts "CLEAR DERIVED DATA"
+      clear_derived_data
+    end
+  end
+
+  #Lane: Project Targets enumerator
+  desc "Get Current User Apple ID (Username)"
+  #Lane: get_apple_id
+  desc "Print target name"
+  private_lane :get_apple_id do |options|
+    username = ENV["apple_id"] || ''
+    if username == ''
+      username = prompt(text: "Apple ID (Username): ")
+      ENV["apple_id"] = username
+    end
+  end
+
+  desc "Run specified lane for all project targets or specific target"
+  private_lane :perform do |options|
+    selected_target_name = options[:target] || "All"
+    selected_lane = options[:lane] || "print_lane"
+    puts "Selected '#{selected_target_name}'"
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["name"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  
+        send(selected_lane.to_sym, target: target_name)
+          # method(selected_lane).call(target: target_name)
+      end
+    end
+  end
+
+  #Lane: print_lane
+  desc "Print target name"
+  private_lane :print_lane do |options|
+    target_name = options[:target] || ''
+    if target_name != ''
+      puts "Print '#{target_name}'"
+    end
+  end
+
+  #Lane: get_target_version_number
+  desc "Returns target version number"
+  private_lane :get_target_version_number do |options|
+    target_plist_path = options[:path] || ''
+    target_version = ''
+    if target_plist_path != ''
+      target_version = get_info_plist_value(key:"CFBundleShortVersionString", path: target_plist_path)
+    end
+    target_version
+  end
+
+  #Lane: get_target_build_number
+  desc "Returns target build number "
+  private_lane :get_target_build_number do |options|
+    target_plist_path = options[:path] || ''
+    target_build = ''
+    if target_plist_path != ''
+      target_build = get_info_plist_value(key:"CFBundleVersion", path: target_plist_path)
+    end
+    target_build
+  end
+
+  #Lane: increment_target_build_number
+  desc "Increment target build number "
+  private_lane :increment_target_build_number do |options|
+    target_plist_path = options[:path] || ''
+    target_build_number = get_target_build_number(path:target_plist_path).to_i
+    if target_plist_path != ''
+      target_build_number += 1
+      set_info_plist_value(key:"CFBundleVersion", value: "#{target_build_number}", path: target_plist_path)
+    end
+    target_build_number = get_target_build_number(path:options[:path]).to_i
+    target_build_number
+  end
+
+  #Lane: provision
+  desc "Create App in Dev center and iTune connect and Provisionning Profiles"
+  private_lane :provision do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+        produce(
+          app_identifier: target_app_identifier,
+          app_name: target_app_name,
+          company_name: target_app_company_name,
+          language: 'English',
+          app_version: target_app_version_number,
+          sku: target_app_identifier,
+          team_id: target_team_id,
+          itc_team_id: target_itc_team_id,
+        )
+        
+        cert(
+          force: false,
+          development: target_app_environment == "Development",
+          team_id: target_team_id,
+          output_path: const_certificates_directory,
+        )
+
+        sigh(
+          output_path: const_profiles_directory,
+          app_identifier: target_app_identifier,
+          # force: true,
+          # adhoc: (target_app_environment == "Adhoc"),
+          development: (target_app_environment == "Development"),
+          provisioning_name: "#{target_scheme_name} - #{target_app_environment}",
+          filename: "#{target_scheme_name} - #{target_app_environment}.mobileprovision",
+          team_id: target_team_id,
+        )
+      end
+    end
+  end
+
+  #Lane: test
+  desc "Test multi target project"
+  lane :test do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        get_apple_id()
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+        produce(
+          app_identifier: target_app_identifier,
+          app_name: target_app_name,
+          company_name: target_app_company_name,
+          language: 'English',
+          app_version: target_app_version_number,
+          sku: target_app_identifier,
+          team_id: target_team_id,
+          itc_team_id: target_itc_team_id,
+        )
+        
+        # cert(
+        #   force: false,
+        #   development: target_app_environment == "Development",
+        #   team_id: target_team_id,
+        #   output_path: const_certificates_directory,
+        # )
+
+        # sigh(
+        #   output_path: const_profiles_directory,
+        #   app_identifier: target_app_identifier,
+        #   # force: true,
+        #   #adhoc: target_app_environment == "Adhoc",
+        #   development: target_app_environment == "Development",
+        #   provisioning_name: "#{target_scheme_name} - #{target_app_environment}",
+        #   filename: "#{target_scheme_name} - #{target_app_environment}.mobileprovision",
+        #   team_id: target_team_id,
+        # )
+
+        increment_target_build_number(path:target_plist_path)
+        # target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        # target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        # target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        # puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+        
+        # ipaName = "#{target_app_name}-#{target_app_version}-#{target_app_environment}.ipa"
+
+        # signing_identity =  const_dev_signing_identifier
+        # if (target_app_environment != "Development")
+        #   signing_identity = const_dist_signing_identifier
+        # end
+        # gym(
+        #   workspace: "#{const_workspace}",
+        #   # project: "#{const_xcode_project}",
+        #   scheme: target_scheme_name,
+        #   configuration: target_app_config,
+        #   silent: true,
+        #   clean: true,
+        #   use_legacy_build_api: true,
+        #   output_directory: const_builds_directory,
+        #   output_name: ipaName,
+        #   codesigning_identity: signing_identity,
+        #   provisioning_profile_path: "#{const_profiles_directory}/#{target_scheme_name} - #{target_app_environment}.mobileprovision",
+        # )
+        
+        # pilot(
+        #   app_identifier: target_app_identifier,
+        #   ipa: "#{const_builds_directory}/#{ipaName}",
+        #   skip_submission: true,
+        # )
+      end
+    end
+  end
+
+#----------------------Public Lanes-----------------------------------------------
+  #Lane: Build
+  desc "Generates new build"
+  lane :new_build do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    # cocoapods
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        get_apple_id()
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        # puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+        provision(target: target_scheme_name) #Create/Update Provision and app
+        
+        increment_target_build_number(path:target_plist_path)
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+        
+        ipaName = "#{target_app_name}-#{target_app_version}-#{target_app_environment}.ipa"
+
+        signing_identity =  const_dev_signing_identifier
+        if (target_app_environment != "Development")
+          signing_identity = const_dist_signing_identifier
+        end
+        gym(
+          workspace: "#{const_workspace}",
+          # project: "#{const_xcode_project}",
+          scheme: target_scheme_name,
+          sdk: "iphoneos",
+          configuration: target_app_config,
+          silent: true,
+          clean: true,
+          # use_legacy_build_api: false,
+          output_directory: const_builds_directory,
+          output_name: ipaName,
+          # codesigning_identity: signing_identity,
+          # provisioning_profile_path: "#{const_profiles_directory}/#{target_scheme_name} - #{target_app_environment}.mobileprovision",
+        )
+
+        # slack(
+        #   message: "#{target_app_name}-#{target_app_version}-#{target_app_environment} Build successfully created! at #{const_builds_directory}/"
+        # )
+      end
+    end
+  end
+
+  #Lane: Submit app to itunes connect
+  desc "Generates new build and submit to testflight"
+  lane :new_testflight do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        get_apple_id()
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+        
+        ipaName = "#{target_app_name}-#{target_app_version}-#{target_app_environment}.ipa"
+
+        if File.exist?(".#{const_builds_directory}/#{ipaName}")  
+          puts "Build #{ipaName} Exist"
+        else #Build ipa does not exist
+          puts "Build #{ipaName} Does not Exist"
+
+          new_build(target: target_scheme_name) #Generate a new build
+        
+          target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+          target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+          target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+          puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+          ipaName = "#{target_app_name}-#{target_app_version}-#{target_app_environment}.ipa"
+        end
+        
+        pilot(
+          app_identifier: target_app_identifier,
+          dev_portal_team_id: target_team_id,
+          team_id: target_itc_team_id,
+          ipa: "#{const_builds_directory}/#{ipaName}",
+          skip_submission: true,
+          distribute_external: false,
+          changelog: "A test from Fastelane",
+          first_name: "Afrozaar",
+          last_name: "PTY",
+          email: "appleios@afrozaar.com",
+          skip_waiting_for_build_processing: true,
+          itc_provider: target_itc_provider
+        )
+
+        slack(
+          message: "#{target_app_name}-#{target_app_version}-#{target_app_environment} Build successfully Uploaded to testflight! "
+        )
+      end
+    end
+  end
+
+  #Lane: Submit app to Fabric
+  desc "Generates new build and submit to Fabric"
+  lane :new_fabric do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        get_apple_id()
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+        
+        ipaName = "#{target_app_name}-#{target_app_version}-#{target_app_environment}.ipa"
+
+        if File.exist?(".#{const_builds_directory}/#{ipaName}")  
+          puts "Build #{ipaName} Exist"
+        else #Build ipa does not exist
+          puts "Build #{ipaName} Does not Exist"
+
+          new_build(target: target_scheme_name) #Generate a new build
+        
+          target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+          target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+          target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+          puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+          ipaName = "#{target_app_name}-#{target_app_version}-#{target_app_environment}.ipa"
+        end
+
+        api_token = ENV["fabric_api_token"] || ''
+	    if api_token == ''
+	      api_token = prompt(text: "Fabric API Token: ")
+	      ENV["fabric_api_token"] = api_token
+	    end
+
+	    api_secret = ENV["fabric_api_secret"] || ''
+	    if api_secret == ''
+	      api_secret = prompt(text: "Fabric API Secret: ")
+	      ENV["fabric_api_secret"] = api_secret
+	    end
+        crashlytics(
+          api_token: api_token,
+          build_secret: api_secret,
+          ipa_path: "#{const_builds_directory}/#{ipaName}",
+          notifications: true
+      	)
+
+        slack(
+          message: "#{target_app_name}-#{target_app_version}-#{target_app_environment} Build successfully Uploaded to Fabric! "
+        )
+      end
+    end
+  end
+
+  #Lane: Build
+  desc "Generates new Push Notification certificate"
+  lane :new_push_certificate do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    # cocoapods
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        get_apple_id()
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        # puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+        provision(target: target_scheme_name) #Create/Update Provision and app
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+        
+        pemName = "#{target_app_name}-#{target_app_environment}.pem"
+        pemPassword = "@fr0zAAr" #"@fr0zAAr_#{target_scheme_name}"
+        
+        pem(
+          # force: true,
+          development: target_app_environment == "Development",
+          generate_p12: true,
+          save_private_key: true,
+          app_identifier: target_app_identifier,
+          team_id: target_team_id,
+          p12_password: pemPassword,
+          pem_name: pemName,
+          output_path: const_push_certificates_directory,
+        )
+
+        slack(
+          message: "#{target_app_name}-#{target_app_version}-#{target_app_environment} Push Cerificate successfully created! at #{const_push_certificates_directory}/"
+        )
+      end
+    end
+  end
+
+  #Lane: Screenshots
+  desc "Generates App Screenshots"
+  lane :new_screenshots do |options|
+    selected_target_name = options[:target] || "All"
+    puts "Selected '#{selected_target_name}'"
+    # cocoapods
+    config["targets"].each do |target_dict|
+      run_lane = true
+      selected_target_dict = target_dict
+      target_name = selected_target_dict["scheme"]
+      target_should_skip = selected_target_dict["skip"]
+      if (selected_target_name != "All" and selected_target_name != target_name) or target_should_skip
+        run_lane = false
+      end
+      if run_lane  #Actual Operations goes here
+        get_apple_id()
+        ENV["SCHEME"] = selected_target_dict["scheme"]
+        target_plist_path = selected_target_dict["plist_path"]
+        target_scheme_name = selected_target_dict["scheme"]
+        target_app_identifier =  selected_target_dict["app_identifier"]
+        target_app_config = selected_target_dict["config"]
+        target_app_environment = selected_target_dict["environment"]
+        target_app_name = selected_target_dict["name"]
+        target_app_company_name = selected_target_dict["company_name"]
+        target_team_id = selected_target_dict["team_id"]
+        target_itc_team_id = selected_target_dict["itc_team_id"]
+        target_itc_provider = selected_target_dict["itc_provider"]
+        target_app_version_number = get_target_version_number(path:target_plist_path) #get_version_number(scheme:target_scheme_name)
+        target_app_build_number = get_target_build_number(path:target_plist_path) #get_build_number -> Does not support multischeme project yet
+        target_app_version = "#{target_app_version_number}(#{target_app_build_number})"
+        # puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+
+        puts "Scheme: '#{target_scheme_name}' name: '#{target_app_name}' id: '#{target_app_identifier}' config: '#{target_app_config}' env: '#{target_app_environment}' v: '#{target_app_version}'"
+        
+        screenshots_folder = "#{const_screenshots_directory}/#{target_app_name}/"
+        
+        snapshot(
+          clean: true,
+          reinstall_app: true,
+          erase_simulator: true,
+          localize_simulator: true,
+          workspace:const_workspace,
+          app_identifier: target_app_identifier,
+          test_target_name: target_scheme_name,
+          output_directory: screenshots_folder,
+          output_simulator_logs: true,
+          clear_previous_screenshots: true,
+          concurrent_simulators: true
+        )
+
+        slack(
+          message: "#{target_app_name}-#{target_app_version}-#{target_app_environment} Push Cerificate successfully created! at #{const_push_certificates_directory}/"
+        )
+      end
+    end
+  end
+#---------------------------------------------------------------------
+  after_all do |lane|
+    # Remove all build artifacts, but keep ipa files
+    clean_build_artifacts(
+      exclude_pattern: ".*\.ipa|.*\.cer|.*\.mobileprovision|.*\.pem|.*\.pkey|.*\.p12|",
+    )
+    # slack(
+    #   message: “Done executing lane '#{lane}'”
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
