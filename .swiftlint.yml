@@ -1,0 +1,67 @@
+#docs here : https://github.com/realm/SwiftLint
+disabled_rules: # rule identifiers to exclude from running
+  - line_length
+  - function_body_length
+  - file_length
+  - type_body_length
+  - nesting
+  - valid_docs
+  - cyclomatic_complexity
+  - legacy_cggeometry_functions
+  - large_tuple
+  - identifier_name
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: error # implicitly
+force_try:
+  severity: error # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+line_length: 110
+# they can set both implicitly with an array
+type_body_length:
+  - 500 # warning
+  - 600 # error
+# or they can set both explicitly
+file_length:
+  warning: 500
+  error: 1200
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 3 # only warning
+  max_length: # warning and error
+    warning: 50
+    error: 60
+  excluded: iPhone # excluded via string
+function_parameter_count:
+  warning: 8
+  error: 10
+variable_name:
+  min_length: # only min_length
+    warning: 1 # only error
+    error: 2 # only error
+  max_length: # warning and error
+    warning: 50
+    error: 60
+  excluded: # excluded via string array
+    - id
+    - app
+    - url
+    - uri
+    - idx
+    - tag
+    - key
+    - rgb
+    - row
+    - hex
+    - URL
+    - all
+    - map
+    - _searchBar
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit)
