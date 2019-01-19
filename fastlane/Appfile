@@ -1,8 +1,8 @@
-app_identifier "com.afrozaar.dailyvoice" # The bundle identifier of your app
-#apple_id "iol.ios@afrozaar.com" # Your Apple email address
+app_identifier "com.ureymt.star-wars" # The bundle identifier of your app
+#apple_id "email@domain.com" # Your Apple email address
 apple_id ENV["apple_id"]
 
-team_id "7JCXZ72835"  # Developer Portal Team ID
+team_id ""  # Developer Portal Team ID
 
 # you can even provide different app identifiers, Apple IDs and team names per lane:
 # More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
