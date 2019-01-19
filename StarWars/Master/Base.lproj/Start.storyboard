@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="saC-jt-7ZV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="1oc-71-iqN">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="saC-jt-7ZV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jOV-pb-xRa">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3Ib-90-93v" kind="relationship" relationship="rootViewController" id="AOe-vJ-vG1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sxJ-DA-Svv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1198" y="111"/>
+        </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="BON-v5-vps">
+            <objects>
+                <viewController storyboardIdentifier="SWSplashScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Ib-90-93v" customClass="SWSplashScreenViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sR3-UR-QCj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUT-1A-ZeV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="Fr6-0N-OT6" kind="embed" identifier="EmbedLaunch" id="PxL-qL-6UL"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dvJ-TY-T7i" firstAttribute="bottom" secondItem="QUT-1A-ZeV" secondAttribute="bottom" id="9bs-BX-OgM"/>
+                            <constraint firstItem="QUT-1A-ZeV" firstAttribute="top" secondItem="dvJ-TY-T7i" secondAttribute="top" constant="-20" id="TpV-Mc-nsD"/>
+                            <constraint firstItem="QUT-1A-ZeV" firstAttribute="width" secondItem="sR3-UR-QCj" secondAttribute="width" id="URe-eV-LVa"/>
+                            <constraint firstItem="QUT-1A-ZeV" firstAttribute="centerX" secondItem="dvJ-TY-T7i" secondAttribute="centerX" id="YJg-jd-8mk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dvJ-TY-T7i"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="AKX-CT-o5X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHC-9n-Rfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-431" y="110"/>
+        </scene>
+        <!--LaunchScreen-->
+        <scene sceneID="XAj-4V-Uc8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LaunchScreen" id="Fr6-0N-OT6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="e82-Mb-gIA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czF-zr-oVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="109"/>
+        </scene>
+    </scenes>
+</document>

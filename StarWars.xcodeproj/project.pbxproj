@@ -13,6 +13,26 @@
 		CC07162821F33E690067F1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC07162621F33E690067F1AD /* Main.storyboard */; };
 		CC07162A21F33E6B0067F1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC07162921F33E6B0067F1AD /* Assets.xcassets */; };
 		CC07162D21F33E6B0067F1AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC07162B21F33E6B0067F1AD /* LaunchScreen.storyboard */; };
+		CC07163A21F33F650067F1AD /* SWNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07163921F33F650067F1AD /* SWNavigationCoordinator.swift */; };
+		CC07163C21F33FA60067F1AD /* SWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07163B21F33FA60067F1AD /* SWNavigationController.swift */; };
+		CC07163E21F340530067F1AD /* Reusables.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07163D21F340530067F1AD /* Reusables.swift */; };
+		CC07164021F340B40067F1AD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07163F21F340B40067F1AD /* UIViewController+Extension.swift */; };
+		CC07164221F340DE0067F1AD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07164121F340DE0067F1AD /* UIView+Extension.swift */; };
+		CC07164821F341DA0067F1AD /* SWAppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07164721F341DA0067F1AD /* SWAppFont.swift */; };
+		CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07164921F341E20067F1AD /* SWAppColor.swift */; };
+		CC07164C21F342A10067F1AD /* SWAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07164B21F342A10067F1AD /* SWAppCell.swift */; };
+		CC07164E21F342B10067F1AD /* SWAppSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07164D21F342B10067F1AD /* SWAppSegue.swift */; };
+		CC07165021F342B80067F1AD /* SWAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07164F21F342B80067F1AD /* SWAppConfig.swift */; };
+		CC07165221F343040067F1AD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07165121F343040067F1AD /* Date+Extension.swift */; };
+		CC07165421F3431F0067F1AD /* SWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07165321F3431F0067F1AD /* SWApp.swift */; };
+		CC07165621F343E30067F1AD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07165521F343E30067F1AD /* UIColor+Extension.swift */; };
+		CC07165921F344560067F1AD /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC07165721F344560067F1AD /* Start.storyboard */; };
+		CC07165C21F344780067F1AD /* SWSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07165B21F344780067F1AD /* SWSplashScreenViewController.swift */; };
+		CC07165E21F3448B0067F1AD /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07165D21F3448B0067F1AD /* SWViewController.swift */; };
+		CC344BFF21F3DF8400002460 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344BFE21F3DF8400002460 /* UINavigationController+Extension.swift */; };
+		CC344C0121F3DFBC00002460 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C0021F3DFBC00002460 /* UIButton+Extension.swift */; };
+		CC344C0321F3DFF900002460 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C0221F3DFF900002460 /* UIImage+Extension.swift */; };
+		CC344C0521F3E6A300002460 /* SWSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C0421F3E6A300002460 /* SWSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +44,26 @@
 		CC07162921F33E6B0067F1AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC07162C21F33E6B0067F1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC07162E21F33E6B0067F1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC07163921F33F650067F1AD /* SWNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWNavigationCoordinator.swift; sourceTree = "<group>"; };
+		CC07163B21F33FA60067F1AD /* SWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWNavigationController.swift; sourceTree = "<group>"; };
+		CC07163D21F340530067F1AD /* Reusables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusables.swift; sourceTree = "<group>"; };
+		CC07163F21F340B40067F1AD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CC07164121F340DE0067F1AD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CC07164721F341DA0067F1AD /* SWAppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAppFont.swift; sourceTree = "<group>"; };
+		CC07164921F341E20067F1AD /* SWAppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAppColor.swift; sourceTree = "<group>"; };
+		CC07164B21F342A10067F1AD /* SWAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAppCell.swift; sourceTree = "<group>"; };
+		CC07164D21F342B10067F1AD /* SWAppSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAppSegue.swift; sourceTree = "<group>"; };
+		CC07164F21F342B80067F1AD /* SWAppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAppConfig.swift; sourceTree = "<group>"; };
+		CC07165121F343040067F1AD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CC07165321F3431F0067F1AD /* SWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWApp.swift; sourceTree = "<group>"; };
+		CC07165521F343E30067F1AD /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CC07165821F344560067F1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
+		CC07165B21F344780067F1AD /* SWSplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWSplashScreenViewController.swift; sourceTree = "<group>"; };
+		CC07165D21F3448B0067F1AD /* SWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
+		CC344BFE21F3DF8400002460 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		CC344C0021F3DFBC00002460 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		CC344C0221F3DFF900002460 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		CC344C0421F3E6A300002460 /* SWSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +96,99 @@
 		CC07161F21F33E690067F1AD /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
-				CC07162021F33E690067F1AD /* AppDelegate.swift */,
-				CC07162221F33E690067F1AD /* MasterViewController.swift */,
-				CC07162421F33E690067F1AD /* DetailViewController.swift */,
-				CC07162621F33E690067F1AD /* Main.storyboard */,
-				CC07162921F33E6B0067F1AD /* Assets.xcassets */,
-				CC07162B21F33E6B0067F1AD /* LaunchScreen.storyboard */,
-				CC07162E21F33E6B0067F1AD /* Info.plist */,
+				CC07163821F33EB90067F1AD /* Services */,
+				CC07163721F33EA50067F1AD /* ViewControllers */,
+				CC07163621F33E9A0067F1AD /* Supported FIles */,
+				CC07163521F33E910067F1AD /* Reusable */,
+				CC07163421F33E830067F1AD /* Master */,
 			);
 			path = StarWars;
+			sourceTree = "<group>";
+		};
+		CC07163421F33E830067F1AD /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				CC07165721F344560067F1AD /* Start.storyboard */,
+				CC07162621F33E690067F1AD /* Main.storyboard */,
+				CC07162B21F33E6B0067F1AD /* LaunchScreen.storyboard */,
+				CC07162021F33E690067F1AD /* AppDelegate.swift */,
+				CC07163921F33F650067F1AD /* SWNavigationCoordinator.swift */,
+				CC07163B21F33FA60067F1AD /* SWNavigationController.swift */,
+				CC07165D21F3448B0067F1AD /* SWViewController.swift */,
+				CC344C0421F3E6A300002460 /* SWSplitViewController.swift */,
+			);
+			path = Master;
+			sourceTree = "<group>";
+		};
+		CC07163521F33E910067F1AD /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				CC07164621F341C20067F1AD /* Extensions */,
+				CC07164521F341B50067F1AD /* Fonts */,
+				CC07163D21F340530067F1AD /* Reusables.swift */,
+				CC07164721F341DA0067F1AD /* SWAppFont.swift */,
+				CC07164921F341E20067F1AD /* SWAppColor.swift */,
+				CC07164B21F342A10067F1AD /* SWAppCell.swift */,
+				CC07164D21F342B10067F1AD /* SWAppSegue.swift */,
+				CC07164F21F342B80067F1AD /* SWAppConfig.swift */,
+				CC07165321F3431F0067F1AD /* SWApp.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		CC07163621F33E9A0067F1AD /* Supported FIles */ = {
+			isa = PBXGroup;
+			children = (
+				CC07162921F33E6B0067F1AD /* Assets.xcassets */,
+				CC07162E21F33E6B0067F1AD /* Info.plist */,
+			);
+			path = "Supported FIles";
+			sourceTree = "<group>";
+		};
+		CC07163721F33EA50067F1AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC07165A21F344610067F1AD /* Splash Screen */,
+				CC07162221F33E690067F1AD /* MasterViewController.swift */,
+				CC07162421F33E690067F1AD /* DetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CC07163821F33EB90067F1AD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CC07164521F341B50067F1AD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CC07164621F341C20067F1AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC07163F21F340B40067F1AD /* UIViewController+Extension.swift */,
+				CC07164121F340DE0067F1AD /* UIView+Extension.swift */,
+				CC07165121F343040067F1AD /* Date+Extension.swift */,
+				CC07165521F343E30067F1AD /* UIColor+Extension.swift */,
+				CC344BFE21F3DF8400002460 /* UINavigationController+Extension.swift */,
+				CC344C0021F3DFBC00002460 /* UIButton+Extension.swift */,
+				CC344C0221F3DFF900002460 /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC07165A21F344610067F1AD /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				CC07165B21F344780067F1AD /* SWSplashScreenViewController.swift */,
+			);
+			path = "Splash Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,7 +219,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = "Publisher's Toolbox";
+				ORGANIZATIONNAME = "Urey Mt.";
 				TargetAttributes = {
 					CC07161C21F33E690067F1AD = {
 						CreatedOnToolsVersion = 10.1;
@@ -126,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC07162D21F33E6B0067F1AD /* LaunchScreen.storyboard in Resources */,
+				CC07165921F344560067F1AD /* Start.storyboard in Resources */,
 				CC07162A21F33E6B0067F1AD /* Assets.xcassets in Resources */,
 				CC07162821F33E690067F1AD /* Main.storyboard in Resources */,
 			);
@@ -138,9 +263,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC07165E21F3448B0067F1AD /* SWViewController.swift in Sources */,
+				CC07163C21F33FA60067F1AD /* SWNavigationController.swift in Sources */,
+				CC344BFF21F3DF8400002460 /* UINavigationController+Extension.swift in Sources */,
+				CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */,
+				CC07165421F3431F0067F1AD /* SWApp.swift in Sources */,
 				CC07162521F33E690067F1AD /* DetailViewController.swift in Sources */,
+				CC07164221F340DE0067F1AD /* UIView+Extension.swift in Sources */,
+				CC344C0521F3E6A300002460 /* SWSplitViewController.swift in Sources */,
+				CC07165021F342B80067F1AD /* SWAppConfig.swift in Sources */,
+				CC07163E21F340530067F1AD /* Reusables.swift in Sources */,
+				CC07165621F343E30067F1AD /* UIColor+Extension.swift in Sources */,
+				CC07165C21F344780067F1AD /* SWSplashScreenViewController.swift in Sources */,
 				CC07162321F33E690067F1AD /* MasterViewController.swift in Sources */,
+				CC07164821F341DA0067F1AD /* SWAppFont.swift in Sources */,
+				CC344C0121F3DFBC00002460 /* UIButton+Extension.swift in Sources */,
+				CC07164E21F342B10067F1AD /* SWAppSegue.swift in Sources */,
+				CC344C0321F3DFF900002460 /* UIImage+Extension.swift in Sources */,
+				CC07164021F340B40067F1AD /* UIViewController+Extension.swift in Sources */,
+				CC07163A21F33F650067F1AD /* SWNavigationCoordinator.swift in Sources */,
+				CC07165221F343040067F1AD /* Date+Extension.swift in Sources */,
 				CC07162121F33E690067F1AD /* AppDelegate.swift in Sources */,
+				CC07164C21F342A10067F1AD /* SWAppCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +305,14 @@
 				CC07162C21F33E6B0067F1AD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CC07165721F344560067F1AD /* Start.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC07165821F344560067F1AD /* Base */,
+			);
+			name = Start.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -286,9 +438,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVA8KB8592;
-				INFOPLIST_FILE = StarWars/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/StarWars/Supported FIles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ureymt.star-wars.StarWars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -304,9 +457,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVA8KB8592;
-				INFOPLIST_FILE = StarWars/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/StarWars/Supported FIles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +468,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ureymt.star-wars.StarWars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
