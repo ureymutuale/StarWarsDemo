@@ -67,6 +67,14 @@
 		CC344C0021F3DFBC00002460 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		CC344C0221F3DFF900002460 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		CC344C0421F3E6A300002460 /* SWSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWSplitViewController.swift; sourceTree = "<group>"; };
+		CC344C0821F3F09900002460 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		CC344C0921F3F09900002460 /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		CC344C0C21F3F09900002460 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		CC344C0D21F3F09900002460 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CC344C0E21F3F09900002460 /* fastlane_config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = fastlane_config.yaml; sourceTree = "<group>"; };
+		CC344C1121F3F09900002460 /* report.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
+		CC344C1221F3F09900002460 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
+		CC344C1321F3F09900002460 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +101,8 @@
 		CC07161421F33E690067F1AD = {
 			isa = PBXGroup;
 			children = (
+				CC344C0621F3F09900002460 /* fastlane */,
+				CC344C1321F3F09900002460 /* README.md */,
 				CC07161F21F33E690067F1AD /* StarWars */,
 				CC07161E21F33E690067F1AD /* Products */,
 				D0CA63BFE27304A7B903170C /* Pods */,
@@ -204,6 +214,60 @@
 				CC07165B21F344780067F1AD /* SWSplashScreenViewController.swift */,
 			);
 			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		CC344C0621F3F09900002460 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C0721F3F09900002460 /* screenshots */,
+				CC344C0821F3F09900002460 /* Appfile */,
+				CC344C0921F3F09900002460 /* SnapshotHelper.swift */,
+				CC344C0A21F3F09900002460 /* certificates */,
+				CC344C0B21F3F09900002460 /* builds */,
+				CC344C0C21F3F09900002460 /* Fastfile */,
+				CC344C0D21F3F09900002460 /* README.md */,
+				CC344C0E21F3F09900002460 /* fastlane_config.yaml */,
+				CC344C0F21F3F09900002460 /* push */,
+				CC344C1021F3F09900002460 /* profiles */,
+				CC344C1121F3F09900002460 /* report.xml */,
+				CC344C1221F3F09900002460 /* Snapfile */,
+			);
+			path = fastlane;
+			sourceTree = "<group>";
+		};
+		CC344C0721F3F09900002460 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
+		CC344C0A21F3F09900002460 /* certificates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = certificates;
+			sourceTree = "<group>";
+		};
+		CC344C0B21F3F09900002460 /* builds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = builds;
+			sourceTree = "<group>";
+		};
+		CC344C0F21F3F09900002460 /* push */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = push;
+			sourceTree = "<group>";
+		};
+		CC344C1021F3F09900002460 /* profiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = profiles;
 			sourceTree = "<group>";
 		};
 		D0CA63BFE27304A7B903170C /* Pods */ = {
