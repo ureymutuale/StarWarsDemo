@@ -64,6 +64,7 @@
 		CC344C5B21F48C2500002460 /* Stjldbl2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C5721F48C2500002460 /* Stjldbl2.ttf */; };
 		CC344C5C21F48C2500002460 /* Stjldbl1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C5821F48C2500002460 /* Stjldbl1.ttf */; };
 		CC344C5E21F49CD900002460 /* SWSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C5D21F49CD900002460 /* SWSearchController.swift */; };
+		CC344C6321F4ACFE00002460 /* SWFilmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C6221F4ACFE00002460 /* SWFilmDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +136,7 @@
 		CC344C5721F48C2500002460 /* Stjldbl2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stjldbl2.ttf; sourceTree = "<group>"; };
 		CC344C5821F48C2500002460 /* Stjldbl1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stjldbl1.ttf; sourceTree = "<group>"; };
 		CC344C5D21F49CD900002460 /* SWSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWSearchController.swift; sourceTree = "<group>"; };
+		CC344C6221F4ACFE00002460 /* SWFilmDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmDetailsViewController.swift; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -439,8 +441,8 @@
 		CC344C4A21F4777100002460 /* Films */ = {
 			isa = PBXGroup;
 			children = (
-				CC344C4B21F4779800002460 /* Components */,
-				CC344C4C21F477F900002460 /* SWFilmsViewController.swift */,
+				CC344C6021F4ACE600002460 /* Details */,
+				CC344C5F21F4ACDC00002460 /* List */,
 			);
 			path = Films;
 			sourceTree = "<group>";
@@ -462,6 +464,31 @@
 				CC344C5821F48C2500002460 /* Stjldbl1.ttf */,
 			);
 			path = stjelogo;
+			sourceTree = "<group>";
+		};
+		CC344C5F21F4ACDC00002460 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C4B21F4779800002460 /* Components */,
+				CC344C4C21F477F900002460 /* SWFilmsViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		CC344C6021F4ACE600002460 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C6121F4ACED00002460 /* Components */,
+				CC344C6221F4ACFE00002460 /* SWFilmDetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		CC344C6121F4ACED00002460 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		D0CA63BFE27304A7B903170C /* Pods */ = {
@@ -653,6 +680,7 @@
 				CC344C4321F46E7A00002460 /* SWFilmRepository.swift in Sources */,
 				CC344C5E21F49CD900002460 /* SWSearchController.swift in Sources */,
 				CC07164021F340B40067F1AD /* UIViewController+Extension.swift in Sources */,
+				CC344C6321F4ACFE00002460 /* SWFilmDetailsViewController.swift in Sources */,
 				CC344C3121F408FA00002460 /* SWIHelper.swift in Sources */,
 				CC344C3921F469E300002460 /* SWEntityRepository.swift in Sources */,
 				CC344C4921F46EC900002460 /* SWICharacterRepository.swift in Sources */,

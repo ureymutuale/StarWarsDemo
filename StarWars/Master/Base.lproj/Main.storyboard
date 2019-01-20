@@ -148,7 +148,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhv-pK-Dwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4033" y="-520"/>
+            <point key="canvasLocation" x="-4670" y="-444"/>
+        </scene>
+        <!--Film Details View Controller-->
+        <scene sceneID="FAD-ep-6TC">
+            <objects>
+                <viewController storyboardIdentifier="SWFilmDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dPg-Fm-mfp" customClass="SWFilmDetailsViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nRh-EA-y0r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="K9j-01-gkS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ij-KU-qCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3926" y="360"/>
         </scene>
         <!--Films View Controller-->
         <scene sceneID="aJD-S2-6jg">
@@ -180,11 +195,12 @@
                     <navigationItem key="navigationItem" id="4EZ-h1-YIw"/>
                     <connections>
                         <outlet property="filmsTableView" destination="aQx-7R-sKY" id="nuy-Gj-awz"/>
+                        <segue destination="dPg-Fm-mfp" kind="show" identifier="showFilmDetails" id="DPl-IO-oy6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWO-4s-oKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4034" y="325"/>
+            <point key="canvasLocation" x="-5441" y="359"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -47,6 +47,7 @@ class SWAppColor: NSObject {
             return UIStatusBarStyle.default
         }
     }
+    
     // MARK:+ FilmsScreen
     struct FilmsScreen {
         struct Navigationbar {
@@ -97,6 +98,33 @@ class SWAppColor: NSObject {
             static var selectedDetailsTextColor: UIColor {
                 return themeLightColor
             }
+        }
+        static var statusBarStyle: UIStatusBarStyle {
+            return UIStatusBarStyle.default
+        }
+    }
+    
+    // MARK:+ FilmDetailsScreen
+    struct FilmDetailsScreen {
+        struct Navigationbar {
+            static var barColor: UIColor {
+                return defaultViewBackgroundColor
+            }
+            static var borderColor: UIColor {
+                return themeSecondaryColor
+            }
+            static var titleColor: UIColor {
+                return themeMainColor
+            }
+            static var itemTintColor: UIColor {
+                return themeMainColor
+            }
+            static var highlightedItemTintColor: UIColor {
+                return themeSecondaryColor
+            }
+        }
+        static var backgroundColor: UIColor {
+            return themeLightColor
         }
         static var statusBarStyle: UIStatusBarStyle {
             return UIStatusBarStyle.default

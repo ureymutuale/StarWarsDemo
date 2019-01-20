@@ -10,7 +10,7 @@ import UIKit
 
 class SWAppSegue: NSObject {
 
-    class var TestVc: String {
-        return "showTestVC"
+    class var SWFilmDetailsViewController: String {
+        return "showFilmDetails"
     }
 }

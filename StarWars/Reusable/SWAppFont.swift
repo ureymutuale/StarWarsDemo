@@ -55,7 +55,7 @@ class SWAppFont: NSObject {
                 var fontSize: CGFloat = 28
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
                 fontSize = fontMultiplier * fontSize
-                return SWAppFont.fontWithType(type: .swSemiBold, size: fontSize)
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
             }
             static var itemTextFont: UIFont {
                 var fontSize: CGFloat = 28
@@ -73,7 +73,7 @@ class SWAppFont: NSObject {
                 var fontSize: CGFloat = 28
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
                 fontSize = fontMultiplier * fontSize
-                return SWAppFont.fontWithType(type: .swSemiBold, size: fontSize)
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
             }
             static var itemTextFont: UIFont {
                 var fontSize: CGFloat = 28
@@ -103,6 +103,24 @@ class SWAppFont: NSObject {
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                 fontSize = fontMultiplier * fontSize
                 return SWAppFont.fontWithType(type: .light, size: fontSize)
+            }
+        }
+    }
+    
+    // MARK:+ FilmDetailsScreen
+    struct FilmDetailsScreen {
+        struct Navigationbar {
+            static var titleFont: UIFont {
+                var fontSize: CGFloat = 28
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+            }
+            static var itemTextFont: UIFont {
+                var fontSize: CGFloat = 28
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
             }
         }
     }

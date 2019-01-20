@@ -89,6 +89,12 @@ class SWFilmsViewController: SWViewController {
         super.viewWillLayoutSubviews()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SWAppSegue.SWFilmDetailsViewController {
+            if let film = sender as? SWFilm, let filmDetailsVc = segue.destination as? SWFilmDetailsViewController {
+                filmDetailsVc.film = film
+                filmDetailsVc.view.backgroundColor = UIColor.white //Force Load View
+            }
+        }
     }
     
     // MARK: + View Setup methods
@@ -225,6 +231,7 @@ class SWFilmsViewController: SWViewController {
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
         }
+        self.performSegue(withIdentifier: SWAppSegue.SWFilmDetailsViewController, sender: film)
     }
     
     
