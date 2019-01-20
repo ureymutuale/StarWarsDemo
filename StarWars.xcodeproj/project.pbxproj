@@ -48,6 +48,14 @@
 		CC344C3121F408FA00002460 /* SWIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3021F408FA00002460 /* SWIHelper.swift */; };
 		CC344C3321F40AEC00002460 /* SWDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3221F40AEC00002460 /* SWDateFormatter.swift */; };
 		CC344C3521F414AF00002460 /* SWCharacterApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3421F414AF00002460 /* SWCharacterApiClient.swift */; };
+		CC344C3921F469E300002460 /* SWEntityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3821F469E300002460 /* SWEntityRepository.swift */; };
+		CC344C3D21F46B1000002460 /* SWRepositoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3C21F46B1000002460 /* SWRepositoryObserver.swift */; };
+		CC344C3F21F46C3E00002460 /* SWRepositoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3E21F46C3E00002460 /* SWRepositoryDelegate.swift */; };
+		CC344C4121F46CC300002460 /* SWIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4021F46CC300002460 /* SWIRepository.swift */; };
+		CC344C4321F46E7A00002460 /* SWFilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4221F46E7A00002460 /* SWFilmRepository.swift */; };
+		CC344C4521F46E8800002460 /* SWCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4421F46E8800002460 /* SWCharacterRepository.swift */; };
+		CC344C4721F46EBB00002460 /* SWIFilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4621F46EBB00002460 /* SWIFilmRepository.swift */; };
+		CC344C4921F46EC900002460 /* SWICharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4821F46EC900002460 /* SWICharacterRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +111,14 @@
 		CC344C3021F408FA00002460 /* SWIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIHelper.swift; sourceTree = "<group>"; };
 		CC344C3221F40AEC00002460 /* SWDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWDateFormatter.swift; sourceTree = "<group>"; };
 		CC344C3421F414AF00002460 /* SWCharacterApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterApiClient.swift; sourceTree = "<group>"; };
+		CC344C3821F469E300002460 /* SWEntityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWEntityRepository.swift; sourceTree = "<group>"; };
+		CC344C3C21F46B1000002460 /* SWRepositoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWRepositoryObserver.swift; sourceTree = "<group>"; };
+		CC344C3E21F46C3E00002460 /* SWRepositoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWRepositoryDelegate.swift; sourceTree = "<group>"; };
+		CC344C4021F46CC300002460 /* SWIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIRepository.swift; sourceTree = "<group>"; };
+		CC344C4221F46E7A00002460 /* SWFilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmRepository.swift; sourceTree = "<group>"; };
+		CC344C4421F46E8800002460 /* SWCharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterRepository.swift; sourceTree = "<group>"; };
+		CC344C4621F46EBB00002460 /* SWIFilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIFilmRepository.swift; sourceTree = "<group>"; };
+		CC344C4821F46EC900002460 /* SWICharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWICharacterRepository.swift; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -315,6 +331,7 @@
 		CC344C1721F3F20600002460 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CC344C3621F4193100002460 /* Repositories */,
 				CC344C1D21F401B500002460 /* Models */,
 			);
 			path = Data;
@@ -358,6 +375,45 @@
 				CC344C3021F408FA00002460 /* SWIHelper.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CC344C3621F4193100002460 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C3B21F46AEF00002460 /* Delegates */,
+				CC344C3A21F46AE800002460 /* Observers */,
+				CC344C3721F4193B00002460 /* Protocols */,
+				CC344C3821F469E300002460 /* SWEntityRepository.swift */,
+				CC344C4221F46E7A00002460 /* SWFilmRepository.swift */,
+				CC344C4421F46E8800002460 /* SWCharacterRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CC344C3721F4193B00002460 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C4021F46CC300002460 /* SWIRepository.swift */,
+				CC344C4621F46EBB00002460 /* SWIFilmRepository.swift */,
+				CC344C4821F46EC900002460 /* SWICharacterRepository.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CC344C3A21F46AE800002460 /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C3C21F46B1000002460 /* SWRepositoryObserver.swift */,
+			);
+			path = Observers;
+			sourceTree = "<group>";
+		};
+		CC344C3B21F46AEF00002460 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C3E21F46C3E00002460 /* SWRepositoryDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		D0CA63BFE27304A7B903170C /* Pods */ = {
@@ -509,6 +565,8 @@
 				CC344C1521F3F1FD00002460 /* SWFilmApiClient.swift in Sources */,
 				CC07165E21F3448B0067F1AD /* SWViewController.swift in Sources */,
 				CC344C2C21F407C600002460 /* SWIFilm.swift in Sources */,
+				CC344C4521F46E8800002460 /* SWCharacterRepository.swift in Sources */,
+				CC344C3F21F46C3E00002460 /* SWRepositoryDelegate.swift in Sources */,
 				CC07163C21F33FA60067F1AD /* SWNavigationController.swift in Sources */,
 				CC344BFF21F3DF8400002460 /* UINavigationController+Extension.swift in Sources */,
 				CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */,
@@ -520,8 +578,10 @@
 				CC344C0521F3E6A300002460 /* SWSplitViewController.swift in Sources */,
 				CC07165021F342B80067F1AD /* SWAppConfig.swift in Sources */,
 				CC07163E21F340530067F1AD /* Reusables.swift in Sources */,
+				CC344C4121F46CC300002460 /* SWIRepository.swift in Sources */,
 				CC07165621F343E30067F1AD /* UIColor+Extension.swift in Sources */,
 				CC344C3321F40AEC00002460 /* SWDateFormatter.swift in Sources */,
+				CC344C4721F46EBB00002460 /* SWIFilmRepository.swift in Sources */,
 				CC07165C21F344780067F1AD /* SWSplashScreenViewController.swift in Sources */,
 				CC344C1F21F401EC00002460 /* SWEntity.swift in Sources */,
 				CC344C2E21F4083000002460 /* SWICharacter.swift in Sources */,
@@ -531,11 +591,15 @@
 				CC344C2721F4073300002460 /* SWCharacterHelper.swift in Sources */,
 				CC344C2321F403FE00002460 /* SWCharacter.swift in Sources */,
 				CC344C1921F3F2A900002460 /* SWNetworkClientService.swift in Sources */,
+				CC344C3D21F46B1000002460 /* SWRepositoryObserver.swift in Sources */,
 				CC07164E21F342B10067F1AD /* SWAppSegue.swift in Sources */,
 				CC344C0321F3DFF900002460 /* UIImage+Extension.swift in Sources */,
 				CC344C2521F4072800002460 /* SWFilmHelper.swift in Sources */,
+				CC344C4321F46E7A00002460 /* SWFilmRepository.swift in Sources */,
 				CC07164021F340B40067F1AD /* UIViewController+Extension.swift in Sources */,
 				CC344C3121F408FA00002460 /* SWIHelper.swift in Sources */,
+				CC344C3921F469E300002460 /* SWEntityRepository.swift in Sources */,
+				CC344C4921F46EC900002460 /* SWICharacterRepository.swift in Sources */,
 				CC07163A21F33F650067F1AD /* SWNavigationCoordinator.swift in Sources */,
 				CC07165221F343040067F1AD /* Date+Extension.swift in Sources */,
 				CC07162121F33E690067F1AD /* AppDelegate.swift in Sources */,

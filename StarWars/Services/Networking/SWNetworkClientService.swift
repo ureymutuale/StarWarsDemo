@@ -39,7 +39,7 @@ public class SWNetworkClientService: NSObject {
     public override init() {
         super.init()
         self.initializeService()
-        self.configureService(force: false)
+        _ = self.configureService(force: false)
     }
     // MARK: - Initialization  methods
     public func initializeService() {

@@ -20,26 +20,34 @@ class DetailViewController: UIViewController {
                 label.text = detail.description
             }
         }
-//        SWFilmApiClient.default.fetchFilmsWithPaging(SWPaging(page: 1, limit: 5), filter: nil) { (films, success, message) in
-//
-//        }
-        
-        let film = SWFilm()
-        film.url = "https://swapi.co/api/films/2/"
-        SWFilmApiClient.default.fetchDetailsForFilm(film, filter: nil) { (film, success, message) in
-
+        SWFilmApiClient.default.fetchFilmsWithPaging(SWPaging(page: 1, limit: 5), filter: nil) { (films, success, message) in
+            SWFilmRepository.default.insertItemsAsync(films, { (insertedFilms) in
+                
+            })
         }
         
-        
+//        let film = SWFilm()
+//        film.url = "https://swapi.co/api/films/2/"
+//        SWFilmApiClient.default.fetchDetailsForFilm(film, filter: nil) { (film, success, message) in
+//            SWFilmRepository.default.insertItemAsync(film, { (insertedFilm) in
+//
+//            })
+//        }
+//
+//
 //        SWCharacterApiClient.default.fetchCharactersWithPaging(SWPaging(page: 1, limit: 5), filter: nil) { (characters, success, message) in
+//            SWCharacterRepository.default.insertItemsAsync(characters, { (insertedCharacters) in
 //
+//            })
 //        }
-        
-        let character = SWCharacter()
-        character.url = "https://swapi.co/api/people/2/"
-        SWCharacterApiClient.default.fetchDetailsForCharacter(character, filter: nil) { (character, success, message) in
-
-        }
+//
+//        let character = SWCharacter()
+//        character.url = "https://swapi.co/api/people/2/"
+//        SWCharacterApiClient.default.fetchDetailsForCharacter(character, filter: nil) { (character, success, message) in
+//            SWCharacterRepository.default.insertItemAsync(character, { (insertedCharacter) in
+//
+//            })
+//        }
     }
 
     override func viewDidLoad() {
