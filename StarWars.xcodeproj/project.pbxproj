@@ -65,6 +65,9 @@
 		CC344C5C21F48C2500002460 /* Stjldbl1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C5821F48C2500002460 /* Stjldbl1.ttf */; };
 		CC344C5E21F49CD900002460 /* SWSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C5D21F49CD900002460 /* SWSearchController.swift */; };
 		CC344C6321F4ACFE00002460 /* SWFilmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C6221F4ACFE00002460 /* SWFilmDetailsViewController.swift */; };
+		CC344C6621F5152500002460 /* SWCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C6421F5152500002460 /* SWCharacterCollectionViewCell.swift */; };
+		CC344C6721F5152500002460 /* SWCharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC344C6521F5152500002460 /* SWCharacterCollectionViewCell.xib */; };
+		CC344C6921F5154900002460 /* SWCharactersFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C6821F5154900002460 /* SWCharactersFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +140,9 @@
 		CC344C5821F48C2500002460 /* Stjldbl1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stjldbl1.ttf; sourceTree = "<group>"; };
 		CC344C5D21F49CD900002460 /* SWSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWSearchController.swift; sourceTree = "<group>"; };
 		CC344C6221F4ACFE00002460 /* SWFilmDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmDetailsViewController.swift; sourceTree = "<group>"; };
+		CC344C6421F5152500002460 /* SWCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC344C6521F5152500002460 /* SWCharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWCharacterCollectionViewCell.xib; sourceTree = "<group>"; };
+		CC344C6821F5154900002460 /* SWCharactersFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharactersFlowLayout.swift; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -487,6 +493,9 @@
 		CC344C6121F4ACED00002460 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CC344C6421F5152500002460 /* SWCharacterCollectionViewCell.swift */,
+				CC344C6521F5152500002460 /* SWCharacterCollectionViewCell.xib */,
+				CC344C6821F5154900002460 /* SWCharactersFlowLayout.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -568,6 +577,7 @@
 				CC07162A21F33E6B0067F1AD /* Assets.xcassets in Resources */,
 				CC344C5121F478C400002460 /* SWFilmTableViewCell.xib in Resources */,
 				CC07162821F33E690067F1AD /* Main.storyboard in Resources */,
+				CC344C6721F5152500002460 /* SWCharacterCollectionViewCell.xib in Resources */,
 				CC344C5C21F48C2500002460 /* Stjldbl1.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,10 +663,12 @@
 				CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */,
 				CC07165421F3431F0067F1AD /* SWApp.swift in Sources */,
 				CC07162521F33E690067F1AD /* DetailViewController.swift in Sources */,
+				CC344C6621F5152500002460 /* SWCharacterCollectionViewCell.swift in Sources */,
 				CC07164221F340DE0067F1AD /* UIView+Extension.swift in Sources */,
 				CC344C2A21F407A300002460 /* SWIEntity.swift in Sources */,
 				CC344C2121F403E400002460 /* SWFilm.swift in Sources */,
 				CC344C0521F3E6A300002460 /* SWSplitViewController.swift in Sources */,
+				CC344C6921F5154900002460 /* SWCharactersFlowLayout.swift in Sources */,
 				CC07165021F342B80067F1AD /* SWAppConfig.swift in Sources */,
 				CC07163E21F340530067F1AD /* Reusables.swift in Sources */,
 				CC344C4121F46CC300002460 /* SWIRepository.swift in Sources */,

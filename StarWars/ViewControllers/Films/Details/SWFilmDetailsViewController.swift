@@ -26,6 +26,12 @@ class SWFilmDetailsViewController: SWViewController {
     @IBOutlet public fileprivate(set) weak var charactersCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var film: SWFilm?
+    fileprivate var filmCharacters: [SWCharacter] {
+        if let film = self.film {
+            return Array(film.characters)
+        }
+        return []
+    }
     
     fileprivate var isLoadinFilmDetails: Bool = false
     
@@ -77,9 +83,19 @@ class SWFilmDetailsViewController: SWViewController {
     // MARK: + View Setup methods
     override func loadSubviews() {
         super.loadSubviews()
+        self.charactersCollectionView.dataSource = self
+        self.charactersCollectionView.delegate = self
+        self.charactersCollectionView.register(SWAppCell.SWCharacterCollectionViewCell.1, forCellWithReuseIdentifier: SWAppCell.SWCharacterCollectionViewCell.0)
+        self.charactersCollectionView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        self.charactersCollectionView.setContentOffset(CGPoint.zero, animated: true)
+        self.charactersCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
     override func setupSubviewsLayout() {
         super.setupSubviewsLayout()
+        self.charactersCollectionView.isScrollEnabled = false
+        if self.charactersCollectionView.contentSize.height > self.charactersCollectionView.frame.size.height {
+            self.charactersCollectionView.isScrollEnabled = true
+        }
     }
     override func applySubviewsAppearance() {
         super.applySubviewsAppearance()
@@ -140,7 +156,7 @@ class SWFilmDetailsViewController: SWViewController {
         let backBarButton = UINavigationController.barButtonItemWithImage(backImage, color: SWAppColor.FilmsScreen.Navigationbar.itemTintColor, selectedColor: SWAppColor.FilmsScreen.Navigationbar.highlightedItemTintColor, size: CGSize(width: 30, height: 30), target: self, action: #selector(self.dismissCurrentViewController(_:)))
         navigationItem?.leftBarButtonItem = backBarButton
         
-        if let spliViewController = self.splitViewController {
+        if let _ = self.splitViewController {
             navigationItem?.leftBarButtonItem = splitViewController?.displayModeButtonItem
             navigationItem?.leftItemsSupplementBackButton = true
         }
@@ -153,7 +169,7 @@ class SWFilmDetailsViewController: SWViewController {
             self.isLoadinFilmDetails = true
             SWFilmApiClient.default.fetchDetailsForFilm(self.film, filter: nil, completion: { (film, success, message) in
                 let isLocal = false
-                NSLog("FETCH - FILM: \(film) UPDATED: \(success) LOCAL: \(isLocal) MSG: \(message)")
+                NSLog("FETCH - FILM: \(String(describing: film)) UPDATED: \(success) LOCAL: \(isLocal) MSG: \(message)")
                 if success || !isLocal || forceRefresh {
                     self.film = film
                     self.reloadContent()
@@ -161,6 +177,22 @@ class SWFilmDetailsViewController: SWViewController {
                 self.isLoadinFilmDetails = false
             })
         })
+    }
+    fileprivate func loadFilmCharacters() {
+        self.charactersCollectionView.reloadData()
+        var height: CGFloat = 0
+        for section in 0..<self.numberOfSections(in: self.charactersCollectionView) {
+            let items = self.collectionView(self.charactersCollectionView, numberOfItemsInSection: section)
+            if let layout = self.charactersCollectionView.collectionViewLayout as? SWCharactersFlowLayout {
+                let itemHeight = layout.itemComputedSize.height
+                height += itemHeight * (ceil(CGFloat(items)/layout.numberOfColumns) + 0.2)
+            }
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.charactersCollectionViewHeightConstraint.constant = height + 20
+            self.view.layoutIfNeeded()
+            self.applySubviewsAppearance()
+        }
     }
     fileprivate func reloadContent() {
         DispatchQueue.main.async(execute: { () -> Void in
@@ -191,6 +223,7 @@ class SWFilmDetailsViewController: SWViewController {
             self.titleLabel.text = title.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             self.detailsLabel.text = details.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             self.introLabel.text = intro.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.loadFilmCharacters()
         })
     }
     
@@ -209,4 +242,45 @@ class SWFilmDetailsViewController: SWViewController {
         super.keyboardWillChangeFrame(notification)
     }
     
+}
+
+// MARK: - UICollectionViewDataSource
+extension SWFilmDetailsViewController: UICollectionViewDataSource {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.filmCharacters.count
+    }
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = UICollectionViewCell()
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: SWAppCell.SWCharacterCollectionViewCell.0, for: indexPath)
+        if let characterCell = cell as? SWCharacterCollectionViewCell {
+            var character: SWCharacter? = nil
+            if indexPath.row < self.filmCharacters.count {
+                character = self.filmCharacters[indexPath.row]
+            }
+            characterCell.loadCharacter(character: character, indexPath: indexPath)
+        }
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension SWFilmDetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.1, animations: {
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
+        })
+    }
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var cellSize = CGSize.zero
+        if let layout = collectionView.collectionViewLayout as? SWCharactersFlowLayout {
+            cellSize = layout.itemComputedSize
+        }
+        return cellSize
+    }
 }

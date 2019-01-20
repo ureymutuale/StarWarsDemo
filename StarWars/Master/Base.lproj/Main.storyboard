@@ -299,10 +299,10 @@
                                                 <rect key="frame" x="0.0" y="293.5" width="375" height="133.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-58-7MY">
-                                                        <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                                        <rect key="frame" x="8" y="8" width="25" height="25"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_darth-vader" translatesAutoresizingMaskIntoConstraints="NO" id="dMn-qW-r72">
-                                                                <rect key="frame" x="4.5" y="4.5" width="21" height="21"/>
+                                                                <rect key="frame" x="4" y="4" width="17.5" height="17.5"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.64003920560000005" green="0.16320320960000001" blue="0.1138207242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -310,24 +310,24 @@
                                                             <constraint firstItem="dMn-qW-r72" firstAttribute="centerY" secondItem="1ar-58-7MY" secondAttribute="centerY" id="3wI-iV-BZf"/>
                                                             <constraint firstItem="dMn-qW-r72" firstAttribute="height" secondItem="1ar-58-7MY" secondAttribute="height" multiplier="0.7" id="CKr-c5-lR2"/>
                                                             <constraint firstAttribute="width" secondItem="1ar-58-7MY" secondAttribute="height" id="JZJ-4u-mKx"/>
-                                                            <constraint firstAttribute="height" constant="30" id="fDy-2v-MBH"/>
+                                                            <constraint firstAttribute="height" constant="25" id="fDy-2v-MBH"/>
                                                             <constraint firstItem="dMn-qW-r72" firstAttribute="width" secondItem="1ar-58-7MY" secondAttribute="width" multiplier="0.7" id="vvI-az-cGR"/>
                                                             <constraint firstItem="dMn-qW-r72" firstAttribute="centerX" secondItem="1ar-58-7MY" secondAttribute="centerX" id="wub-rf-UU9"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-0K-unK">
-                                                        <rect key="frame" x="41" y="8" width="329" height="20.5"/>
+                                                        <rect key="frame" x="36" y="8" width="334" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-Rx-wrf">
-                                                        <rect key="frame" x="38" y="33.5" width="337" height="100"/>
+                                                        <rect key="frame" x="8" y="33.5" width="359" height="100"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="jtM-2t-f4q"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="layoutMargins" id="TuO-sP-UBA">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="layoutMargins" id="TuO-sP-UBA" customClass="SWCharactersFlowLayout" customModule="StarWars" customModuleProvider="target">
                                                             <size key="itemSize" width="50" height="50"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -337,12 +337,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="gLG-Rx-wrf" firstAttribute="leading" secondItem="6vB-HV-gie" secondAttribute="leading" constant="8" id="7iV-E1-aRL"/>
                                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1ar-58-7MY" secondAttribute="bottom" constant="8" id="Ep0-9k-XRR"/>
                                                     <constraint firstAttribute="bottom" secondItem="gLG-Rx-wrf" secondAttribute="bottom" id="IY2-W7-7JH"/>
                                                     <constraint firstItem="4hN-0K-unK" firstAttribute="leading" secondItem="1ar-58-7MY" secondAttribute="trailing" constant="3" id="JoA-HN-Xsv"/>
-                                                    <constraint firstItem="gLG-Rx-wrf" firstAttribute="leading" secondItem="4hN-0K-unK" secondAttribute="leading" constant="-3" id="PLI-xs-kAx"/>
                                                     <constraint firstItem="gLG-Rx-wrf" firstAttribute="top" secondItem="4hN-0K-unK" secondAttribute="bottom" constant="5" id="UHP-sZ-hT6"/>
-                                                    <constraint firstAttribute="trailing" secondItem="gLG-Rx-wrf" secondAttribute="trailing" id="ZR6-DG-eHy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gLG-Rx-wrf" secondAttribute="trailing" constant="8" id="ZR6-DG-eHy"/>
                                                     <constraint firstItem="1ar-58-7MY" firstAttribute="top" secondItem="6vB-HV-gie" secondAttribute="top" constant="8" id="c2n-SI-0lS"/>
                                                     <constraint firstItem="1ar-58-7MY" firstAttribute="leading" secondItem="6vB-HV-gie" secondAttribute="leading" constant="8" id="fHr-dx-V5B"/>
                                                     <constraint firstAttribute="trailing" secondItem="4hN-0K-unK" secondAttribute="trailing" constant="5" id="hIc-88-E4Q"/>

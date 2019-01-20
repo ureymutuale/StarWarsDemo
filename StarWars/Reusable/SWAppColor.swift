@@ -180,7 +180,7 @@ class SWAppColor: NSObject {
             }
             struct CharacterItemCell {
                 static var backgroundColor: UIColor {
-                    return themeLightColor
+                    return themeSecondaryColor
                 }
                 static var borderColor: UIColor {
                     return UIColor.clear

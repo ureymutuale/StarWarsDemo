@@ -12,4 +12,7 @@ class SWAppCell: NSObject {
     class var  SWFilmTableViewCell: (String, UINib) {
         return  ("SWFilmTableViewCell", UINib(nibName: "SWFilmTableViewCell", bundle: Bundle.main))
     }
+    class var  SWCharacterCollectionViewCell: (String, UINib) {
+        return  ("SWCharacterCollectionViewCell", UINib(nibName: "SWCharacterCollectionViewCell", bundle: Bundle.main))
+    }
 }

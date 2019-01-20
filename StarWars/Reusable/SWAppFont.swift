@@ -167,7 +167,7 @@ class SWAppFont: NSObject {
             struct LeftAccessoryView {
             }
             static var headerTextFont: UIFont {
-                var fontSize: CGFloat = 22
+                var fontSize: CGFloat = 19
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
                 fontSize = fontMultiplier * fontSize
                 return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
