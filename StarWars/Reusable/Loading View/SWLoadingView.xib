@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="SWLoadingView" customModule="StarWars" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bY0-tl-Zh2" userLabel="Blur">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nUL-DL-Ozf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyq-3k-OdI" userLabel="Vibrancy">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zle-K2-eYe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <vibrancyEffect>
+                        <blurEffect style="extraLight"/>
+                    </vibrancyEffect>
+                </visualEffectView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoF-xq-ovW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-Vg-pz8">
+                            <rect key="frame" x="225" y="225" width="150" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="xuA-Vg-pz8" secondAttribute="height" id="CrT-NC-rVj"/>
+                            </constraints>
+                        </imageView>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWG-kf-Sar">
+                            <rect key="frame" x="37.5" y="395" width="300" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="xuA-Vg-pz8" firstAttribute="centerX" secondItem="xoF-xq-ovW" secondAttribute="centerX" id="1BU-eW-uqL"/>
+                        <constraint firstItem="xuA-Vg-pz8" firstAttribute="centerY" secondItem="xoF-xq-ovW" secondAttribute="centerY" id="4Na-L5-sD3"/>
+                        <constraint firstItem="zWG-kf-Sar" firstAttribute="centerX" secondItem="xoF-xq-ovW" secondAttribute="centerX" id="OmE-gq-KIL"/>
+                        <constraint firstItem="xuA-Vg-pz8" firstAttribute="width" relation="lessThanOrEqual" secondItem="xoF-xq-ovW" secondAttribute="width" multiplier="1/4" id="Pb7-qp-68L"/>
+                        <constraint firstItem="zWG-kf-Sar" firstAttribute="top" secondItem="xuA-Vg-pz8" secondAttribute="bottom" constant="20" id="h5r-44-F53"/>
+                        <constraint firstItem="zWG-kf-Sar" firstAttribute="width" secondItem="xoF-xq-ovW" secondAttribute="width" multiplier="0.8" id="jfS-kh-HwH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bY0-tl-Zh2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="0F1-hn-q1S"/>
+                <constraint firstItem="bY0-tl-Zh2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1TE-c3-mXs"/>
+                <constraint firstItem="bY0-tl-Zh2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2pH-Jw-8V6"/>
+                <constraint firstItem="bY0-tl-Zh2" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="6aT-Pu-ocX"/>
+                <constraint firstItem="Xyq-3k-OdI" firstAttribute="centerX" secondItem="bY0-tl-Zh2" secondAttribute="centerX" id="7xu-Tl-H62"/>
+                <constraint firstItem="xoF-xq-ovW" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="AFV-dX-ofp"/>
+                <constraint firstItem="xoF-xq-ovW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bhy-pU-pQU"/>
+                <constraint firstItem="xoF-xq-ovW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="FpV-DC-FCs"/>
+                <constraint firstItem="Xyq-3k-OdI" firstAttribute="width" secondItem="bY0-tl-Zh2" secondAttribute="width" id="Nss-U8-7BU"/>
+                <constraint firstItem="Xyq-3k-OdI" firstAttribute="centerY" secondItem="bY0-tl-Zh2" secondAttribute="centerY" id="OlZ-Es-ING"/>
+                <constraint firstItem="Xyq-3k-OdI" firstAttribute="height" secondItem="bY0-tl-Zh2" secondAttribute="height" id="X2S-jL-M40"/>
+                <constraint firstItem="xoF-xq-ovW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Zea-Pd-2PS"/>
+            </constraints>
+            <connections>
+                <outlet property="containerView" destination="xoF-xq-ovW" id="48S-kv-rvq"/>
+                <outlet property="loadingImageView" destination="xuA-Vg-pz8" id="o4G-c0-ETq"/>
+                <outlet property="loadingLabel" destination="zWG-kf-Sar" id="sIJ-x1-tfz"/>
+            </connections>
+        </view>
+    </objects>
+</document>

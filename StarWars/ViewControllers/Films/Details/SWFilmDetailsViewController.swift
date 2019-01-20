@@ -157,6 +157,7 @@ class SWFilmDetailsViewController: SWViewController {
         if self.isLoadinFilmDetails {
             return
         }
+        SWLoadingController.default.showLoadingInView(self.view, id: "FilmDetails")
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async(execute: {
             self.isLoadinFilmDetails = true
             SWFilmApiClient.default.fetchDetailsForFilm(self.film, filter: nil, completion: { (film, success, message) in
@@ -167,6 +168,7 @@ class SWFilmDetailsViewController: SWViewController {
                     self.reloadContent()
                 }
                 self.isLoadinFilmDetails = false
+                SWLoadingController.default.hideLoadingFromView(self.view, id: "FilmDetails")
             })
         })
     }
@@ -189,6 +191,7 @@ class SWFilmDetailsViewController: SWViewController {
         if self.isLoadinCharacters {
             return
         }
+        SWLoadingController.default.showLoadingInView(self.charactersCollectionView, id: "CharactersList")
         let dispatchGroup = DispatchGroup()
         let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive)
         self.filmCharacters.removeAll()
@@ -216,6 +219,7 @@ class SWFilmDetailsViewController: SWViewController {
                     self.isLoadinCharacters = false
                     self.charactersCollectionView.reloadData()
                     resizeCharactersCollectionView()
+                    SWLoadingController.default.hideLoadingFromView(self.charactersCollectionView, id: "CharactersList")
                 }
             })
         }

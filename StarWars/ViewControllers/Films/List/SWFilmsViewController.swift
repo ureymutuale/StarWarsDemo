@@ -149,6 +149,7 @@ class SWFilmsViewController: SWViewController {
         if self.isLoadinFilms {
             return
         }
+        SWLoadingController.default.showLoadingInView(nil, id: "FilmsList")
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async(execute: {
             self.isLoadinFilms = true
             SWFilmApiClient.default.fetchFilmsWithPaging(paging, filter: nil) { (films, success, message) in
@@ -165,6 +166,7 @@ class SWFilmsViewController: SWViewController {
                     })
                 }
                 self.isLoadinFilms = false
+                SWLoadingController.default.hideLoadingFromView(nil, id: "FilmsList")
             }
         })
     }
