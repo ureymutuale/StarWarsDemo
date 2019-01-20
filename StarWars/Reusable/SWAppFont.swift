@@ -123,5 +123,59 @@ class SWAppFont: NSObject {
                 return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
             }
         }
+        struct DetailsContainer {
+            static var episodeTextFont: UIFont {
+                var fontSize: CGFloat = 20
+                if isIPad() {
+                    fontSize = 22
+                }
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+            }
+            struct TextContainer {
+                static var titleTextFont: UIFont {
+                    var fontSize: CGFloat = 25
+                    if isIPad() {
+                        fontSize = 22
+                    }
+                    let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
+                    fontSize = fontMultiplier * fontSize
+                    return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+                }
+                static var detailsTextFont: UIFont {
+                    var fontSize: CGFloat = 18
+                    if isIPad() {
+                        fontSize = 18
+                    }
+                    let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
+                    fontSize = fontMultiplier * fontSize
+                    return SWAppFont.fontWithType(type: .light, size: fontSize)
+                }
+                static var introTextFont: UIFont {
+                    var fontSize: CGFloat = 25
+                    if isIPad() {
+                        fontSize = 18
+                    }
+                    let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
+                    fontSize = fontMultiplier * fontSize
+                    return SWAppFont.fontWithType(type: .regular, size: fontSize)
+                }
+            }
+        }
+        struct CharactersContainer {
+            struct LeftAccessoryView {
+            }
+            static var headerTextFont: UIFont {
+                var fontSize: CGFloat = 22
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+            }
+            struct CharacterItemCell {
+                struct SelectionView {
+                }
+            }
+        }
     }
 }

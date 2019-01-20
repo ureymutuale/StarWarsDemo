@@ -13,7 +13,7 @@ public let defaultBlueColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha
 class SWAppColor: NSObject {
     
     static let themeMainColor: UIColor = UIColor(hex: "#2F3131") //Theme Main Color
-    static let themeSecondaryColor: UIColor = UIColor(hex: "#FEE63D") //Theme Main Color
+    static let themeSecondaryColor: UIColor = UIColor(hex: "#FDC02F") //Theme Main Color
     static let themeDarkColor: UIColor = UIColor.black
     static let themeLowDarkColor: UIColor = UIColor.darkText
     static let themeMediumColor: UIColor = UIColor.gray
@@ -125,6 +125,67 @@ class SWAppColor: NSObject {
         }
         static var backgroundColor: UIColor {
             return themeLightColor
+        }
+        struct DetailsContainer {
+            static var backgroundColor: UIColor {
+                return UIColor.clear
+            }
+            static var borderColor: UIColor {
+                return UIColor.clear
+            }
+            static var episodeTextColor: UIColor {
+                return themeLightColor
+            }
+            struct TextContainer {
+                static var backgroundColor: UIColor {
+                    return themeLightColor
+                }
+                static var borderColor: UIColor {
+                    return UIColor.clear
+                }
+                static var titleTextColor: UIColor {
+                    return themeMainColor
+                }
+                static var detailsTextColor: UIColor {
+                    return themeLowLightColor
+                }
+                static var introTextColor: UIColor {
+                    return themeMainColor
+                }
+            }
+        }
+        struct CharactersContainer {
+            static var backgroundColor: UIColor {
+                return themeLightColor
+            }
+            static var borderColor: UIColor {
+                return UIColor.clear
+            }
+            static var separatorColor: UIColor {
+                return themeSecondaryColor.colorWithAlpha(0.4)
+            }
+            struct LeftAccessoryView {
+                static var backgroundColor: UIColor {
+                    return themeSecondaryColor
+                }
+                static var borderColor: UIColor {
+                    return themeMainColor
+                }
+                static var iconTintColor: UIColor {
+                    return themeMainColor
+                }
+            }
+            static var headerTextColor: UIColor {
+                return themeMainColor
+            }
+            struct CharacterItemCell {
+                static var backgroundColor: UIColor {
+                    return themeLightColor
+                }
+                static var borderColor: UIColor {
+                    return UIColor.clear
+                }
+            }
         }
         static var statusBarStyle: UIStatusBarStyle {
             return UIStatusBarStyle.default

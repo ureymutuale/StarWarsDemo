@@ -10,6 +10,21 @@ import UIKit
 
 class SWFilmDetailsViewController: SWViewController {
     
+    @IBOutlet fileprivate(set) weak var detailsContainerView: UIView!
+    @IBOutlet fileprivate(set) weak var posterImageView: UIImageView!
+    @IBOutlet fileprivate(set) weak var episodeLabel: UILabel!
+    @IBOutlet fileprivate(set) weak var textContainerView: UIView!
+    @IBOutlet fileprivate(set) weak var titleLabel: UILabel!
+    @IBOutlet fileprivate(set) weak var detailsLabel: UILabel!
+    @IBOutlet fileprivate(set) weak var introLabel: UILabel!
+    
+    @IBOutlet public fileprivate(set) weak var charactersContainerView: UIView!
+    @IBOutlet public fileprivate(set) weak var charactersLeftAccessoryView: UIView!
+    @IBOutlet public fileprivate(set) weak var charactersLeftAccessoryImageView: UIImageView!
+    @IBOutlet public fileprivate(set) weak var charactersLabel: UILabel!
+    @IBOutlet public fileprivate(set) weak var charactersCollectionView: UICollectionView!
+    @IBOutlet public fileprivate(set) weak var charactersCollectionViewHeightConstraint: NSLayoutConstraint!
+    
     var film: SWFilm?
     
     fileprivate var isLoadinFilmDetails: Bool = false
@@ -30,6 +45,7 @@ class SWFilmDetailsViewController: SWViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.reloadContent()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -71,6 +87,40 @@ class SWFilmDetailsViewController: SWViewController {
         self.navigationController?.setupNavigationControllerWithBarColor(barColor: SWAppColor.FilmDetailsScreen.Navigationbar.barColor, tintColor: SWAppColor.FilmDetailsScreen.Navigationbar.itemTintColor, titleColor: SWAppColor.FilmDetailsScreen.Navigationbar.titleColor, titleFont: SWAppFont.FilmDetailsScreen.Navigationbar.titleFont, hidden: false)
         self.navigationController?.setBottomBorderColor(SWAppColor.FilmDetailsScreen.Navigationbar.borderColor, height: 0.2)
         self.setupNavigationBarItems()
+        
+        //Details Container
+        self.detailsContainerView.backgroundColor = SWAppColor.FilmDetailsScreen.DetailsContainer.backgroundColor
+        self.detailsContainerView.setBorder(SWAppColor.FilmDetailsScreen.DetailsContainer.borderColor, borderWidth: 1.0)
+        
+        self.episodeLabel.textColor = SWAppColor.FilmDetailsScreen.DetailsContainer.episodeTextColor
+        self.episodeLabel.font = SWAppFont.FilmDetailsScreen.DetailsContainer.episodeTextFont
+        
+        self.textContainerView.backgroundColor = SWAppColor.FilmDetailsScreen.DetailsContainer.TextContainer.backgroundColor
+        self.textContainerView.setBorder(SWAppColor.FilmDetailsScreen.DetailsContainer.TextContainer.borderColor, borderWidth: 1.0)
+        
+        self.titleLabel.textColor = SWAppColor.FilmDetailsScreen.DetailsContainer.TextContainer.titleTextColor
+        self.titleLabel.font = SWAppFont.FilmDetailsScreen.DetailsContainer.TextContainer.titleTextFont
+        
+        self.detailsLabel.textColor = SWAppColor.FilmDetailsScreen.DetailsContainer.TextContainer.detailsTextColor
+        self.detailsLabel.font = SWAppFont.FilmDetailsScreen.DetailsContainer.TextContainer.detailsTextFont
+        
+        self.introLabel.textColor = SWAppColor.FilmDetailsScreen.DetailsContainer.TextContainer.introTextColor
+        self.introLabel.font = SWAppFont.FilmDetailsScreen.DetailsContainer.TextContainer.introTextFont
+        
+        //Characters Section
+        self.charactersContainerView.addTopSeparatorLine(SWAppColor.FilmDetailsScreen.CharactersContainer.separatorColor, height: 0.5, multiplier: 1.0, xOffset: 0, yOffset: -5)
+        self.charactersContainerView.backgroundColor = SWAppColor.FilmDetailsScreen.CharactersContainer.backgroundColor
+        self.charactersContainerView.setBorder(SWAppColor.FilmDetailsScreen.CharactersContainer.borderColor, borderWidth: 1.0)
+        
+        self.charactersLeftAccessoryView.backgroundColor = SWAppColor.FilmDetailsScreen.CharactersContainer.LeftAccessoryView.backgroundColor
+        self.charactersLeftAccessoryView.setBorder(SWAppColor.FilmDetailsScreen.CharactersContainer.LeftAccessoryView.borderColor, borderWidth: 1.0)
+        self.charactersLeftAccessoryView.layer.cornerRadius = self.charactersLeftAccessoryView.frame.size.height/2
+        self.charactersLeftAccessoryView.clipsToBounds = true
+        
+        self.charactersLeftAccessoryImageView.image = self.charactersLeftAccessoryImageView.image?.imageWithColor(SWAppColor.FilmDetailsScreen.CharactersContainer.LeftAccessoryView.iconTintColor)
+        
+        self.charactersLabel.textColor = SWAppColor.FilmDetailsScreen.CharactersContainer.headerTextColor
+        self.charactersLabel.font = SWAppFont.FilmDetailsScreen.CharactersContainer.headerTextFont
     }
     override func forceViewReload() {
         super.forceViewReload()
@@ -114,7 +164,33 @@ class SWFilmDetailsViewController: SWViewController {
     }
     fileprivate func reloadContent() {
         DispatchQueue.main.async(execute: { () -> Void in
-            
+            var episode = ""
+            var title = ""
+            var details = ""
+            var intro = ""
+            if let _episodeId = self.film?.episodeId {
+                episode = "Episode \(_episodeId)"
+            }
+            if let _title = self.film?.title {
+                title = _title
+            }
+            if let _release = self.film?.releaseDate {
+                let formatter = SWDateFormatter.fullDateTimeFormatter
+                details = "Released on \(formatter.string(from: _release))"
+            }
+            if let _director = self.film?.director {
+                details += "\nDirected by: \(_director)"
+            }
+            if let _producer = self.film?.producer {
+                details += "\nProduced by: \(_producer)"
+            }
+            if let _intro = self.film?.openingCrawl {
+                intro = _intro
+            }
+            self.episodeLabel.text = episode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.titleLabel.text = title.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.detailsLabel.text = details.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.introLabel.text = intro.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         })
     }
     
