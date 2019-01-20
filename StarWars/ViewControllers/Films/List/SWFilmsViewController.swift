@@ -66,7 +66,9 @@ class SWFilmsViewController: SWViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.loadFilms(forceRefresh: false)
+        if self.allFilms.count <= 0 {
+            self.loadFilms(forceRefresh: false)
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

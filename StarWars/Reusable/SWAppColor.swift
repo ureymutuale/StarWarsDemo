@@ -144,13 +144,13 @@ class SWAppColor: NSObject {
                     return UIColor.clear
                 }
                 static var titleTextColor: UIColor {
-                    return themeMainColor
+                    return themeDarkColor
                 }
                 static var detailsTextColor: UIColor {
                     return themeLowLightColor
                 }
                 static var introTextColor: UIColor {
-                    return themeMainColor
+                    return themeDarkColor
                 }
             }
         }

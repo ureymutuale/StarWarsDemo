@@ -78,7 +78,7 @@ class SWCharacterCollectionViewCell: UICollectionViewCell {
             if let _name = character.name {
                 name = _name
             }
-//            self.nameLabel.text = name
+            self.nameLabel.text = name
         }
     }
     

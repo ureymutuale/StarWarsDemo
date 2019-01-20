@@ -179,7 +179,8 @@
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCW-zR-os0">
-                                                        <rect key="frame" x="275.5" y="80.5" width="91.5" height="26.5"/>
+                                                        <rect key="frame" x="283.5" y="80.5" width="91.5" height="26.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -247,7 +248,7 @@
                                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Intro" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-Hh-vRw">
+                                                            <label userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Intro" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-Hh-vRw">
                                                                 <rect key="frame" x="10" y="73.5" width="355" height="14.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -284,7 +285,7 @@
                                                     <constraint firstItem="EuK-9f-bFG" firstAttribute="top" secondItem="LSW-yD-k7n" secondAttribute="bottom" id="HH4-dP-twu"/>
                                                     <constraint firstItem="EuK-9f-bFG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h32-RA-KCe" secondAttribute="centerY" id="HJm-m0-1BH"/>
                                                     <constraint firstItem="9WN-WM-jP0" firstAttribute="trailing" secondItem="LSW-yD-k7n" secondAttribute="trailing" id="IfD-af-E29"/>
-                                                    <constraint firstItem="MCW-zR-os0" firstAttribute="trailing" secondItem="LSW-yD-k7n" secondAttribute="trailing" constant="-8" id="JSl-xH-kFU"/>
+                                                    <constraint firstItem="MCW-zR-os0" firstAttribute="trailing" secondItem="LSW-yD-k7n" secondAttribute="trailing" id="JSl-xH-kFU"/>
                                                     <constraint firstItem="MCW-zR-os0" firstAttribute="centerY" secondItem="LSW-yD-k7n" secondAttribute="centerY" id="g6R-OV-nk7"/>
                                                     <constraint firstItem="LSW-yD-k7n" firstAttribute="leading" secondItem="h32-RA-KCe" secondAttribute="leading" id="nGk-fp-2z8"/>
                                                     <constraint firstItem="9WN-WM-jP0" firstAttribute="bottom" secondItem="LSW-yD-k7n" secondAttribute="bottom" id="pYw-Wm-mjT"/>
@@ -321,7 +322,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-Rx-wrf">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-Rx-wrf">
                                                         <rect key="frame" x="8" y="33.5" width="359" height="100"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>

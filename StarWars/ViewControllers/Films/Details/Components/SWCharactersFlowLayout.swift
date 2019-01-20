@@ -18,7 +18,7 @@ class SWCharactersFlowLayout: UICollectionViewFlowLayout {
                 var columns: CGFloat = 3
                 if collectionView.isHorizontalSizeClassRegularWidth() {
                     if isIPad() {
-                        columns = 5
+                        columns = 6
                     }
                     if isLandscape() {
                         columns += 1

@@ -26,14 +26,10 @@ class SWFilmDetailsViewController: SWViewController {
     @IBOutlet public fileprivate(set) weak var charactersCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var film: SWFilm?
-    fileprivate var filmCharacters: [SWCharacter] {
-        if let film = self.film {
-            return Array(film.characters)
-        }
-        return []
-    }
+    fileprivate(set) var filmCharacters: [SWCharacter] = []
     
     fileprivate var isLoadinFilmDetails: Bool = false
+    fileprivate var isLoadinCharacters: Bool = false
     
     // MARK: + Initialization  methods
     convenience init(fromNib: Bool = true) {
@@ -92,10 +88,6 @@ class SWFilmDetailsViewController: SWViewController {
     }
     override func setupSubviewsLayout() {
         super.setupSubviewsLayout()
-        self.charactersCollectionView.isScrollEnabled = false
-        if self.charactersCollectionView.contentSize.height > self.charactersCollectionView.frame.size.height {
-            self.charactersCollectionView.isScrollEnabled = true
-        }
     }
     override func applySubviewsAppearance() {
         super.applySubviewsAppearance()
@@ -179,19 +171,53 @@ class SWFilmDetailsViewController: SWViewController {
         })
     }
     fileprivate func loadFilmCharacters() {
-        self.charactersCollectionView.reloadData()
-        var height: CGFloat = 0
-        for section in 0..<self.numberOfSections(in: self.charactersCollectionView) {
-            let items = self.collectionView(self.charactersCollectionView, numberOfItemsInSection: section)
-            if let layout = self.charactersCollectionView.collectionViewLayout as? SWCharactersFlowLayout {
-                let itemHeight = layout.itemComputedSize.height
-                height += itemHeight * (ceil(CGFloat(items)/layout.numberOfColumns) + 0.2)
+        func resizeCharactersCollectionView() {
+            var height: CGFloat = 0
+            for section in 0..<self.numberOfSections(in: self.charactersCollectionView) {
+                let items = self.collectionView(self.charactersCollectionView, numberOfItemsInSection: section)
+                if let layout = self.charactersCollectionView.collectionViewLayout as? SWCharactersFlowLayout {
+                    let itemHeight = layout.itemComputedSize.height
+                    height += itemHeight * (ceil(CGFloat(items)/layout.numberOfColumns) + 0.2)
+                }
+            }
+            UIView.animate(withDuration: 0.3) {
+                self.charactersCollectionViewHeightConstraint.constant = height + 40
+                self.view.layoutIfNeeded()
+                self.applySubviewsAppearance()
             }
         }
-        UIView.animate(withDuration: 0.3) {
-            self.charactersCollectionViewHeightConstraint.constant = height + 20
-            self.view.layoutIfNeeded()
-            self.applySubviewsAppearance()
+        if self.isLoadinCharacters {
+            return
+        }
+        let dispatchGroup = DispatchGroup()
+        let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive)
+        self.filmCharacters.removeAll()
+        var characters: [SWCharacter] = []
+        if let _characters = self.film?.characters {
+            characters = Array(_characters)
+        }
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
+            self.isLoadinCharacters = true
+            for character in characters {
+                dispatchGroup.enter()
+                SWCharacterApiClient.default.fetchDetailsForCharacter(character, filter: nil, completion: { (updatedCharacter, success, message) in
+                    if let updatedCharacter = updatedCharacter {
+                        self.filmCharacters.append(updatedCharacter)
+                    }
+                    dispatchGroup.leave()
+                })
+            }
+            if characters.count <= 0 {
+                dispatchGroup.enter()
+                dispatchGroup.leave()
+            }
+            dispatchGroup.notify(queue: queue, execute: {
+                DispatchQueue.main.sync {
+                    self.isLoadinCharacters = false
+                    self.charactersCollectionView.reloadData()
+                    resizeCharactersCollectionView()
+                }
+            })
         }
     }
     fileprivate func reloadContent() {
@@ -201,7 +227,7 @@ class SWFilmDetailsViewController: SWViewController {
             var details = ""
             var intro = ""
             if let _episodeId = self.film?.episodeId {
-                episode = "Episode \(_episodeId)"
+                episode = "  Episode \(_episodeId)  "
             }
             if let _title = self.film?.title {
                 title = _title

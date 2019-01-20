@@ -68,6 +68,7 @@
 		CC344C6621F5152500002460 /* SWCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C6421F5152500002460 /* SWCharacterCollectionViewCell.swift */; };
 		CC344C6721F5152500002460 /* SWCharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC344C6521F5152500002460 /* SWCharacterCollectionViewCell.xib */; };
 		CC344C6921F5154900002460 /* SWCharactersFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C6821F5154900002460 /* SWCharactersFlowLayout.swift */; };
+		CC344C6B21F5288D00002460 /* Starjout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C6A21F5288C00002460 /* Starjout.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		CC344C6421F5152500002460 /* SWCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC344C6521F5152500002460 /* SWCharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWCharacterCollectionViewCell.xib; sourceTree = "<group>"; };
 		CC344C6821F5154900002460 /* SWCharactersFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharactersFlowLayout.swift; sourceTree = "<group>"; };
+		CC344C6A21F5288C00002460 /* Starjout.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Starjout.ttf; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -263,6 +265,7 @@
 		CC07164521F341B50067F1AD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				CC344C6A21F5288C00002460 /* Starjout.ttf */,
 				CC344C5421F48C2500002460 /* stjelogo */,
 			);
 			path = Fonts;
@@ -578,6 +581,7 @@
 				CC344C5121F478C400002460 /* SWFilmTableViewCell.xib in Resources */,
 				CC07162821F33E690067F1AD /* Main.storyboard in Resources */,
 				CC344C6721F5152500002460 /* SWCharacterCollectionViewCell.xib in Resources */,
+				CC344C6B21F5288D00002460 /* Starjout.ttf in Resources */,
 				CC344C5C21F48C2500002460 /* Stjldbl1.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

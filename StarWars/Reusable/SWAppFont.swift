@@ -16,6 +16,7 @@ private enum SWAppFontType: String {
     case swRegular = "StarJediLogoMonoLine"
     case swSemiBold = "StarJediLogoDoubleLine1"
     case swBold = "StarJediLogoDoubleLine2"
+    case swOutline = "StarJediOutline"
 }
 class SWAppFont: NSObject {
     
@@ -87,19 +88,13 @@ class SWAppFont: NSObject {
         }
         struct FilmItemCell {
             static var titleTextFont: UIFont {
-                var fontSize: CGFloat = 25
-                if isIPad() {
-                    fontSize = 22
-                }
+                var fontSize: CGFloat = 28
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                 fontSize = fontMultiplier * fontSize
                 return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
             }
             static var detailsTextFont: UIFont {
                 var fontSize: CGFloat = 18
-                if isIPad() {
-                    fontSize = 18
-                }
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                 fontSize = fontMultiplier * fontSize
                 return SWAppFont.fontWithType(type: .light, size: fontSize)
@@ -125,38 +120,26 @@ class SWAppFont: NSObject {
         }
         struct DetailsContainer {
             static var episodeTextFont: UIFont {
-                var fontSize: CGFloat = 20
-                if isIPad() {
-                    fontSize = 22
-                }
+                var fontSize: CGFloat = 28
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                 fontSize = fontMultiplier * fontSize
-                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+                return SWAppFont.fontWithType(type: .swOutline, size: fontSize)
             }
             struct TextContainer {
                 static var titleTextFont: UIFont {
-                    var fontSize: CGFloat = 25
-                    if isIPad() {
-                        fontSize = 22
-                    }
+                    var fontSize: CGFloat = 28
                     let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                     fontSize = fontMultiplier * fontSize
                     return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
                 }
                 static var detailsTextFont: UIFont {
                     var fontSize: CGFloat = 18
-                    if isIPad() {
-                        fontSize = 18
-                    }
                     let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                     fontSize = fontMultiplier * fontSize
                     return SWAppFont.fontWithType(type: .light, size: fontSize)
                 }
                 static var introTextFont: UIFont {
-                    var fontSize: CGFloat = 25
-                    if isIPad() {
-                        fontSize = 18
-                    }
+                    var fontSize: CGFloat = 28
                     let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
                     fontSize = fontMultiplier * fontSize
                     return SWAppFont.fontWithType(type: .regular, size: fontSize)
@@ -174,10 +157,10 @@ class SWAppFont: NSObject {
             }
             struct CharacterItemCell {
                 static var nameTextFont: UIFont {
-                    var fontSize: CGFloat = 16
+                    var fontSize: CGFloat = 24
                     let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
                     fontSize = fontMultiplier * fontSize
-                    return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+                    return SWAppFont.fontWithType(type: .swOutline, size: fontSize)
                 }
             }
         }
