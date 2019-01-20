@@ -10,8 +10,7 @@ install! 'cocoapods',
 
 def required_pods
     use_frameworks!
-    #    pod 'Fabric'
-    #    pod 'Crashlytics'
+    pod 'Alamofire'
 end
 
 ["StarWars",

@@ -34,6 +34,20 @@
 		CC344C0121F3DFBC00002460 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C0021F3DFBC00002460 /* UIButton+Extension.swift */; };
 		CC344C0321F3DFF900002460 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C0221F3DFF900002460 /* UIImage+Extension.swift */; };
 		CC344C0521F3E6A300002460 /* SWSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C0421F3E6A300002460 /* SWSplitViewController.swift */; };
+		CC344C1521F3F1FD00002460 /* SWFilmApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C1421F3F1FD00002460 /* SWFilmApiClient.swift */; };
+		CC344C1921F3F2A900002460 /* SWNetworkClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C1821F3F2A900002460 /* SWNetworkClientService.swift */; };
+		CC344C1B21F3F98100002460 /* SWApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C1A21F3F98100002460 /* SWApiHelper.swift */; };
+		CC344C1F21F401EC00002460 /* SWEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C1E21F401EC00002460 /* SWEntity.swift */; };
+		CC344C2121F403E400002460 /* SWFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2021F403E400002460 /* SWFilm.swift */; };
+		CC344C2321F403FE00002460 /* SWCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2221F403FE00002460 /* SWCharacter.swift */; };
+		CC344C2521F4072800002460 /* SWFilmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2421F4072800002460 /* SWFilmHelper.swift */; };
+		CC344C2721F4073300002460 /* SWCharacterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2621F4073300002460 /* SWCharacterHelper.swift */; };
+		CC344C2A21F407A300002460 /* SWIEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2921F407A300002460 /* SWIEntity.swift */; };
+		CC344C2C21F407C600002460 /* SWIFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2B21F407C600002460 /* SWIFilm.swift */; };
+		CC344C2E21F4083000002460 /* SWICharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C2D21F4083000002460 /* SWICharacter.swift */; };
+		CC344C3121F408FA00002460 /* SWIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3021F408FA00002460 /* SWIHelper.swift */; };
+		CC344C3321F40AEC00002460 /* SWDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3221F40AEC00002460 /* SWDateFormatter.swift */; };
+		CC344C3521F414AF00002460 /* SWCharacterApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C3421F414AF00002460 /* SWCharacterApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +89,20 @@
 		CC344C1121F3F09900002460 /* report.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
 		CC344C1221F3F09900002460 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
 		CC344C1321F3F09900002460 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CC344C1421F3F1FD00002460 /* SWFilmApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmApiClient.swift; sourceTree = "<group>"; };
+		CC344C1821F3F2A900002460 /* SWNetworkClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWNetworkClientService.swift; sourceTree = "<group>"; };
+		CC344C1A21F3F98100002460 /* SWApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWApiHelper.swift; sourceTree = "<group>"; };
+		CC344C1E21F401EC00002460 /* SWEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWEntity.swift; sourceTree = "<group>"; };
+		CC344C2021F403E400002460 /* SWFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilm.swift; sourceTree = "<group>"; };
+		CC344C2221F403FE00002460 /* SWCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacter.swift; sourceTree = "<group>"; };
+		CC344C2421F4072800002460 /* SWFilmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmHelper.swift; sourceTree = "<group>"; };
+		CC344C2621F4073300002460 /* SWCharacterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterHelper.swift; sourceTree = "<group>"; };
+		CC344C2921F407A300002460 /* SWIEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIEntity.swift; sourceTree = "<group>"; };
+		CC344C2B21F407C600002460 /* SWIFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIFilm.swift; sourceTree = "<group>"; };
+		CC344C2D21F4083000002460 /* SWICharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWICharacter.swift; sourceTree = "<group>"; };
+		CC344C3021F408FA00002460 /* SWIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIHelper.swift; sourceTree = "<group>"; };
+		CC344C3221F40AEC00002460 /* SWDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWDateFormatter.swift; sourceTree = "<group>"; };
+		CC344C3421F414AF00002460 /* SWCharacterApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterApiClient.swift; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +185,7 @@
 				CC07164D21F342B10067F1AD /* SWAppSegue.swift */,
 				CC07164F21F342B80067F1AD /* SWAppConfig.swift */,
 				CC07165321F3431F0067F1AD /* SWApp.swift */,
+				CC344C3221F40AEC00002460 /* SWDateFormatter.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -183,6 +212,8 @@
 		CC07163821F33EB90067F1AD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CC344C1721F3F20600002460 /* Data */,
+				CC344C1621F3F20000002460 /* Networking */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,6 +299,65 @@
 			children = (
 			);
 			path = profiles;
+			sourceTree = "<group>";
+		};
+		CC344C1621F3F20000002460 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C1421F3F1FD00002460 /* SWFilmApiClient.swift */,
+				CC344C3421F414AF00002460 /* SWCharacterApiClient.swift */,
+				CC344C1821F3F2A900002460 /* SWNetworkClientService.swift */,
+				CC344C1A21F3F98100002460 /* SWApiHelper.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CC344C1721F3F20600002460 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C1D21F401B500002460 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CC344C1C21F401A900002460 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C2F21F408F100002460 /* Protocols */,
+				CC344C2421F4072800002460 /* SWFilmHelper.swift */,
+				CC344C2621F4073300002460 /* SWCharacterHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CC344C1D21F401B500002460 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C2821F4079600002460 /* Protocols */,
+				CC344C1C21F401A900002460 /* Helpers */,
+				CC344C1E21F401EC00002460 /* SWEntity.swift */,
+				CC344C2021F403E400002460 /* SWFilm.swift */,
+				CC344C2221F403FE00002460 /* SWCharacter.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC344C2821F4079600002460 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C2921F407A300002460 /* SWIEntity.swift */,
+				CC344C2B21F407C600002460 /* SWIFilm.swift */,
+				CC344C2D21F4083000002460 /* SWICharacter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CC344C2F21F408F100002460 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C3021F408FA00002460 /* SWIHelper.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		D0CA63BFE27304A7B903170C /* Pods */ = {
@@ -414,24 +504,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC344C1B21F3F98100002460 /* SWApiHelper.swift in Sources */,
+				CC344C3521F414AF00002460 /* SWCharacterApiClient.swift in Sources */,
+				CC344C1521F3F1FD00002460 /* SWFilmApiClient.swift in Sources */,
 				CC07165E21F3448B0067F1AD /* SWViewController.swift in Sources */,
+				CC344C2C21F407C600002460 /* SWIFilm.swift in Sources */,
 				CC07163C21F33FA60067F1AD /* SWNavigationController.swift in Sources */,
 				CC344BFF21F3DF8400002460 /* UINavigationController+Extension.swift in Sources */,
 				CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */,
 				CC07165421F3431F0067F1AD /* SWApp.swift in Sources */,
 				CC07162521F33E690067F1AD /* DetailViewController.swift in Sources */,
 				CC07164221F340DE0067F1AD /* UIView+Extension.swift in Sources */,
+				CC344C2A21F407A300002460 /* SWIEntity.swift in Sources */,
+				CC344C2121F403E400002460 /* SWFilm.swift in Sources */,
 				CC344C0521F3E6A300002460 /* SWSplitViewController.swift in Sources */,
 				CC07165021F342B80067F1AD /* SWAppConfig.swift in Sources */,
 				CC07163E21F340530067F1AD /* Reusables.swift in Sources */,
 				CC07165621F343E30067F1AD /* UIColor+Extension.swift in Sources */,
+				CC344C3321F40AEC00002460 /* SWDateFormatter.swift in Sources */,
 				CC07165C21F344780067F1AD /* SWSplashScreenViewController.swift in Sources */,
+				CC344C1F21F401EC00002460 /* SWEntity.swift in Sources */,
+				CC344C2E21F4083000002460 /* SWICharacter.swift in Sources */,
 				CC07162321F33E690067F1AD /* MasterViewController.swift in Sources */,
 				CC07164821F341DA0067F1AD /* SWAppFont.swift in Sources */,
 				CC344C0121F3DFBC00002460 /* UIButton+Extension.swift in Sources */,
+				CC344C2721F4073300002460 /* SWCharacterHelper.swift in Sources */,
+				CC344C2321F403FE00002460 /* SWCharacter.swift in Sources */,
+				CC344C1921F3F2A900002460 /* SWNetworkClientService.swift in Sources */,
 				CC07164E21F342B10067F1AD /* SWAppSegue.swift in Sources */,
 				CC344C0321F3DFF900002460 /* UIImage+Extension.swift in Sources */,
+				CC344C2521F4072800002460 /* SWFilmHelper.swift in Sources */,
 				CC07164021F340B40067F1AD /* UIViewController+Extension.swift in Sources */,
+				CC344C3121F408FA00002460 /* SWIHelper.swift in Sources */,
 				CC07163A21F33F650067F1AD /* SWNavigationCoordinator.swift in Sources */,
 				CC07165221F343040067F1AD /* Date+Extension.swift in Sources */,
 				CC07162121F33E690067F1AD /* AppDelegate.swift in Sources */,
