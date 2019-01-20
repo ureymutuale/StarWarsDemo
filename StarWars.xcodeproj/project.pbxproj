@@ -56,6 +56,14 @@
 		CC344C4521F46E8800002460 /* SWCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4421F46E8800002460 /* SWCharacterRepository.swift */; };
 		CC344C4721F46EBB00002460 /* SWIFilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4621F46EBB00002460 /* SWIFilmRepository.swift */; };
 		CC344C4921F46EC900002460 /* SWICharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4821F46EC900002460 /* SWICharacterRepository.swift */; };
+		CC344C4D21F477F900002460 /* SWFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4C21F477F900002460 /* SWFilmsViewController.swift */; };
+		CC344C5021F478C400002460 /* SWFilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C4E21F478C400002460 /* SWFilmTableViewCell.swift */; };
+		CC344C5121F478C400002460 /* SWFilmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC344C4F21F478C400002460 /* SWFilmTableViewCell.xib */; };
+		CC344C5321F4892C00002460 /* UIViewControllers+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C5221F4892C00002460 /* UIViewControllers+Extension.swift */; };
+		CC344C5921F48C2500002460 /* Strjmono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C5521F48C2500002460 /* Strjmono.ttf */; };
+		CC344C5B21F48C2500002460 /* Stjldbl2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C5721F48C2500002460 /* Stjldbl2.ttf */; };
+		CC344C5C21F48C2500002460 /* Stjldbl1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC344C5821F48C2500002460 /* Stjldbl1.ttf */; };
+		CC344C5E21F49CD900002460 /* SWSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC344C5D21F49CD900002460 /* SWSearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +127,14 @@
 		CC344C4421F46E8800002460 /* SWCharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacterRepository.swift; sourceTree = "<group>"; };
 		CC344C4621F46EBB00002460 /* SWIFilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWIFilmRepository.swift; sourceTree = "<group>"; };
 		CC344C4821F46EC900002460 /* SWICharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWICharacterRepository.swift; sourceTree = "<group>"; };
+		CC344C4C21F477F900002460 /* SWFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmsViewController.swift; sourceTree = "<group>"; };
+		CC344C4E21F478C400002460 /* SWFilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWFilmTableViewCell.swift; sourceTree = "<group>"; };
+		CC344C4F21F478C400002460 /* SWFilmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SWFilmTableViewCell.xib; sourceTree = "<group>"; };
+		CC344C5221F4892C00002460 /* UIViewControllers+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllers+Extension.swift"; sourceTree = "<group>"; };
+		CC344C5521F48C2500002460 /* Strjmono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Strjmono.ttf; sourceTree = "<group>"; };
+		CC344C5721F48C2500002460 /* Stjldbl2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stjldbl2.ttf; sourceTree = "<group>"; };
+		CC344C5821F48C2500002460 /* Stjldbl1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stjldbl1.ttf; sourceTree = "<group>"; };
+		CC344C5D21F49CD900002460 /* SWSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWSearchController.swift; sourceTree = "<group>"; };
 		E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,6 +201,7 @@
 				CC07163B21F33FA60067F1AD /* SWNavigationController.swift */,
 				CC07165D21F3448B0067F1AD /* SWViewController.swift */,
 				CC344C0421F3E6A300002460 /* SWSplitViewController.swift */,
+				CC344C5D21F49CD900002460 /* SWSearchController.swift */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -218,6 +235,7 @@
 		CC07163721F33EA50067F1AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC344C4A21F4777100002460 /* Films */,
 				CC07165A21F344610067F1AD /* Splash Screen */,
 				CC07162221F33E690067F1AD /* MasterViewController.swift */,
 				CC07162421F33E690067F1AD /* DetailViewController.swift */,
@@ -237,6 +255,7 @@
 		CC07164521F341B50067F1AD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				CC344C5421F48C2500002460 /* stjelogo */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -251,6 +270,7 @@
 				CC344BFE21F3DF8400002460 /* UINavigationController+Extension.swift */,
 				CC344C0021F3DFBC00002460 /* UIButton+Extension.swift */,
 				CC344C0221F3DFF900002460 /* UIImage+Extension.swift */,
+				CC344C5221F4892C00002460 /* UIViewControllers+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -416,6 +436,34 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		CC344C4A21F4777100002460 /* Films */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C4B21F4779800002460 /* Components */,
+				CC344C4C21F477F900002460 /* SWFilmsViewController.swift */,
+			);
+			path = Films;
+			sourceTree = "<group>";
+		};
+		CC344C4B21F4779800002460 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C4E21F478C400002460 /* SWFilmTableViewCell.swift */,
+				CC344C4F21F478C400002460 /* SWFilmTableViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CC344C5421F48C2500002460 /* stjelogo */ = {
+			isa = PBXGroup;
+			children = (
+				CC344C5521F48C2500002460 /* Strjmono.ttf */,
+				CC344C5721F48C2500002460 /* Stjldbl2.ttf */,
+				CC344C5821F48C2500002460 /* Stjldbl1.ttf */,
+			);
+			path = stjelogo;
+			sourceTree = "<group>";
+		};
 		D0CA63BFE27304A7B903170C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,10 +534,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC344C5B21F48C2500002460 /* Stjldbl2.ttf in Resources */,
+				CC344C5921F48C2500002460 /* Strjmono.ttf in Resources */,
 				CC07162D21F33E6B0067F1AD /* LaunchScreen.storyboard in Resources */,
 				CC07165921F344560067F1AD /* Start.storyboard in Resources */,
 				CC07162A21F33E6B0067F1AD /* Assets.xcassets in Resources */,
+				CC344C5121F478C400002460 /* SWFilmTableViewCell.xib in Resources */,
 				CC07162821F33E690067F1AD /* Main.storyboard in Resources */,
+				CC344C5C21F48C2500002460 /* Stjldbl1.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,11 +614,13 @@
 			files = (
 				CC344C1B21F3F98100002460 /* SWApiHelper.swift in Sources */,
 				CC344C3521F414AF00002460 /* SWCharacterApiClient.swift in Sources */,
+				CC344C4D21F477F900002460 /* SWFilmsViewController.swift in Sources */,
 				CC344C1521F3F1FD00002460 /* SWFilmApiClient.swift in Sources */,
 				CC07165E21F3448B0067F1AD /* SWViewController.swift in Sources */,
 				CC344C2C21F407C600002460 /* SWIFilm.swift in Sources */,
 				CC344C4521F46E8800002460 /* SWCharacterRepository.swift in Sources */,
 				CC344C3F21F46C3E00002460 /* SWRepositoryDelegate.swift in Sources */,
+				CC344C5321F4892C00002460 /* UIViewControllers+Extension.swift in Sources */,
 				CC07163C21F33FA60067F1AD /* SWNavigationController.swift in Sources */,
 				CC344BFF21F3DF8400002460 /* UINavigationController+Extension.swift in Sources */,
 				CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */,
@@ -582,6 +636,7 @@
 				CC07165621F343E30067F1AD /* UIColor+Extension.swift in Sources */,
 				CC344C3321F40AEC00002460 /* SWDateFormatter.swift in Sources */,
 				CC344C4721F46EBB00002460 /* SWIFilmRepository.swift in Sources */,
+				CC344C5021F478C400002460 /* SWFilmTableViewCell.swift in Sources */,
 				CC07165C21F344780067F1AD /* SWSplashScreenViewController.swift in Sources */,
 				CC344C1F21F401EC00002460 /* SWEntity.swift in Sources */,
 				CC344C2E21F4083000002460 /* SWICharacter.swift in Sources */,
@@ -596,6 +651,7 @@
 				CC344C0321F3DFF900002460 /* UIImage+Extension.swift in Sources */,
 				CC344C2521F4072800002460 /* SWFilmHelper.swift in Sources */,
 				CC344C4321F46E7A00002460 /* SWFilmRepository.swift in Sources */,
+				CC344C5E21F49CD900002460 /* SWSearchController.swift in Sources */,
 				CC07164021F340B40067F1AD /* UIViewController+Extension.swift in Sources */,
 				CC344C3121F408FA00002460 /* SWIHelper.swift in Sources */,
 				CC344C3921F469E300002460 /* SWEntityRepository.swift in Sources */,
@@ -769,7 +825,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ureymt.star-wars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -789,7 +845,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ureymt.star-wars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

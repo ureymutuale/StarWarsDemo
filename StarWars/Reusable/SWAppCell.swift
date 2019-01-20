@@ -9,7 +9,7 @@
 import UIKit
 
 class SWAppCell: NSObject {
-    class var  TestCell: (String, UINib) {
-        return  ("TestCell", UINib(nibName: "TestCell", bundle: Bundle.main))
+    class var  SWFilmTableViewCell: (String, UINib) {
+        return  ("SWFilmTableViewCell", UINib(nibName: "SWFilmTableViewCell", bundle: Bundle.main))
     }
 }

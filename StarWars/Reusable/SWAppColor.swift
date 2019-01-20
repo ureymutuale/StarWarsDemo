@@ -12,7 +12,8 @@ public let defaultBlueColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha
 
 class SWAppColor: NSObject {
     
-    static let themeMainColor: UIColor = UIColor(hex: "#B31F24") //Theme Main Color
+    static let themeMainColor: UIColor = UIColor(hex: "#2F3131") //Theme Main Color
+    static let themeSecondaryColor: UIColor = UIColor(hex: "#FEE63D") //Theme Main Color
     static let themeDarkColor: UIColor = UIColor.black
     static let themeLowDarkColor: UIColor = UIColor.darkText
     static let themeMediumColor: UIColor = UIColor.gray
@@ -24,23 +25,78 @@ class SWAppColor: NSObject {
     struct DefaultScreen {
         struct Navigationbar {
             static var barColor: UIColor {
-                return themeMainColor
+                return defaultViewBackgroundColor
             }
             static var borderColor: UIColor {
-                return themeLowLightColor
+                return themeSecondaryColor
             }
             static var titleColor: UIColor {
-                return themeLightColor
+                return themeMainColor
             }
             static var itemTintColor: UIColor {
-                return themeLightColor
+                return themeMainColor
             }
             static var highlightedItemTintColor: UIColor {
-                return themeMediumColor
+                return themeSecondaryColor
             }
         }
         static var backgroundColor: UIColor {
-            return defaultViewBackgroundColor
+            return themeLightColor
+        }
+        static var statusBarStyle: UIStatusBarStyle {
+            return UIStatusBarStyle.default
+        }
+    }
+    // MARK:+ FilmsScreen
+    struct FilmsScreen {
+        struct Navigationbar {
+            static var barColor: UIColor {
+                return defaultViewBackgroundColor
+            }
+            static var borderColor: UIColor {
+                return themeSecondaryColor
+            }
+            static var titleColor: UIColor {
+                return themeMainColor
+            }
+            static var itemTintColor: UIColor {
+                return themeMainColor
+            }
+            static var highlightedItemTintColor: UIColor {
+                return themeSecondaryColor
+            }
+        }
+        static var backgroundColor: UIColor {
+            return themeLightColor
+        }
+        static var refreshControlTintColor: UIColor {
+            return themeMainColor
+        }
+        struct FilmItemCell {
+            static var backgroundColor: UIColor {
+                return themeLightColor
+            }
+            static var selectedBackgroundColor: UIColor {
+                return themeMainColor
+            }
+            static var borderColor: UIColor {
+                return UIColor.clear
+            }
+            static var selectedBorderColor: UIColor {
+                return themeSecondaryColor
+            }
+            static var titleTextColor: UIColor {
+                return themeDarkColor
+            }
+            static var selectedTitleTextColor: UIColor {
+                return themeLightColor
+            }
+            static var detailsTextColor: UIColor {
+                return themeLowLightColor
+            }
+            static var selectedDetailsTextColor: UIColor {
+                return themeLightColor
+            }
         }
         static var statusBarStyle: UIStatusBarStyle {
             return UIStatusBarStyle.default

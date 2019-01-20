@@ -75,3 +75,23 @@ private extension Int {
         return (self << 4) + self
     }
 }
+
+extension UIColor {
+    func lighterBy(_ percentage: CGFloat = 30.0) -> UIColor? {
+        return self.adjustBy(abs(percentage) )
+    }
+    func darkerBy(_ percentage: CGFloat = 30.0) -> UIColor? {
+        return self.adjustBy( -1 * abs(percentage) )
+    }
+    func adjustBy(_ percentage: CGFloat = 30.0) -> UIColor? {
+        var red: CGFloat=0, green: CGFloat=0, blue: CGFloat=0, alpha: CGFloat=0
+        if(self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)) {
+            return UIColor(red: min(red + percentage/100, 1.0),
+                           green: min(green + percentage/100, 1.0),
+                           blue: min(blue + percentage/100, 1.0),
+                           alpha: alpha)
+        } else {
+            return self
+        }
+    }
+}

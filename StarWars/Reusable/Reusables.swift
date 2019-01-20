@@ -61,3 +61,22 @@ public extension  URL {
 public func radians(_ degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(CGFloat.pi/180)
 }
+
+public extension UISearchBar {
+    public var searchTextField: UITextField? {
+        for subview in self.subviews[0].subviews {
+            if let searchTF = subview as? UITextField {
+                return searchTF
+            }
+        }
+        return nil
+    }
+    public var searchCancelButton: UIButton? {
+        for subview in self.subviews[0].subviews {
+            if let cancelButton: UIButton = subview as? UIButton {
+                return cancelButton
+            }
+        }
+        return nil
+    }
+}

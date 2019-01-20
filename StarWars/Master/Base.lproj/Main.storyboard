@@ -143,12 +143,48 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="H1p-Uh-vWS" kind="relationship" relationship="rootViewController" id="YcG-i0-UO0"/>
+                        <segue destination="WDT-Et-Ali" kind="relationship" relationship="rootViewController" id="irr-Ta-D0w"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhv-pK-Dwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1703" y="-299"/>
+            <point key="canvasLocation" x="-4033" y="-520"/>
+        </scene>
+        <!--Films View Controller-->
+        <scene sceneID="aJD-S2-6jg">
+            <objects>
+                <viewController storyboardIdentifier="SWFilmsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WDT-Et-Ali" customClass="SWFilmsViewController" customModule="StarWars" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eiP-Cw-kpg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ThF-u8-QbV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="csF-H3-6mt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQx-7R-sKY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aQx-7R-sKY" firstAttribute="centerX" secondItem="csF-H3-6mt" secondAttribute="centerX" id="8x1-4l-u5n"/>
+                            <constraint firstItem="aQx-7R-sKY" firstAttribute="height" secondItem="csF-H3-6mt" secondAttribute="height" id="gxm-HD-Bc2"/>
+                            <constraint firstItem="aQx-7R-sKY" firstAttribute="width" secondItem="csF-H3-6mt" secondAttribute="width" id="oyi-iQ-wDR"/>
+                            <constraint firstItem="aQx-7R-sKY" firstAttribute="centerY" secondItem="csF-H3-6mt" secondAttribute="centerY" id="pt1-vF-6eL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yyw-gt-gUo"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4EZ-h1-YIw"/>
+                    <connections>
+                        <outlet property="filmsTableView" destination="aQx-7R-sKY" id="nuy-Gj-awz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EWO-4s-oKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4034" y="325"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

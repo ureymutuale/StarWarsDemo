@@ -63,12 +63,5 @@ extension UIViewController {
     @objc open func applySubviewsAppearance() {
         
     }
-    @objc open func applyTheme() {
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
-            self.setNeedsStatusBarAppearanceUpdate()
-            self.view.setNeedsLayout()
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
     
 }

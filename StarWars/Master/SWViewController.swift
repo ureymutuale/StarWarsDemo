@@ -10,6 +10,9 @@ import UIKit
 
 class SWViewController: UIViewController {
 
+    open var keyboardFrame: CGRect?
+    open var isKeyboardVisible: Bool = false
+    
     public convenience init(fromNib: Bool = true) {
         if fromNib {
             self.init(nibName: "SWViewController", bundle: Bundle(for: SWViewController.classForCoder()))
@@ -40,6 +43,7 @@ class SWViewController: UIViewController {
         self.forceViewControllerOrientation()
         self.applySubviewsAppearance()
         self.setNeedsStatusBarAppearanceUpdate()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -104,9 +108,9 @@ class SWViewController: UIViewController {
     }
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if isIPad() {
-            return UIInterfaceOrientationMask.all
+            return UIInterfaceOrientationMask.landscape
         }
-        return UIInterfaceOrientationMask.all
+        return UIInterfaceOrientationMask.portrait
     }
     public func forceViewControllerOrientation() {
         if isLandscape() {
@@ -115,6 +119,24 @@ class SWViewController: UIViewController {
             //                    let value = UIInterfaceOrientation.PortraitUpsideDown.rawValue
             //                    UIDevice.currentDevice().setValue(value, forKey: "orientation")
             //            }
+        }
+    }
+    
+    // MARK: + UIKeyboard notifications methods
+    @objc open func keyboardWillChangeFrame(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            self.keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            if let userInfo = notification.userInfo {
+                let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+                let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+                UIView.animate(withDuration: duration, animations: {
+                    if endFrame!.origin.y >= self.view.frame.size.height { //hidden
+                        self.isKeyboardVisible = false
+                    } else {//shown
+                        self.isKeyboardVisible = true
+                    }
+                })
+            }
         }
     }
 

@@ -36,6 +36,9 @@ class SWSplashScreenViewController: SWViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
@@ -148,4 +151,7 @@ class SWSplashScreenViewController: SWViewController {
     }
     
     // MARK: + UIKeyboard notifications methods
+    override func keyboardWillChangeFrame(_ notification: Notification) {
+        super.keyboardWillChangeFrame(notification)
+    }
 }

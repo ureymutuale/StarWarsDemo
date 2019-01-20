@@ -13,6 +13,9 @@ private enum SWAppFontType: String {
     case regular = "HelveticaNeue"
     case semiBold = "HelveticaNeue-Medium"
     case bold = "HelveticaNeue-Bold"
+    case swRegular = "StarJediLogoMonoLine"
+    case swSemiBold = "StarJediLogoDoubleLine1"
+    case swBold = "StarJediLogoDoubleLine2"
 }
 class SWAppFont: NSObject {
     
@@ -52,13 +55,54 @@ class SWAppFont: NSObject {
                 var fontSize: CGFloat = 28
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
                 fontSize = fontMultiplier * fontSize
-                return SWAppFont.fontWithType(type: .semiBold, size: fontSize)
+                return SWAppFont.fontWithType(type: .swSemiBold, size: fontSize)
             }
             static var itemTextFont: UIFont {
                 var fontSize: CGFloat = 28
                 let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
                 fontSize = fontMultiplier * fontSize
-                return SWAppFont.fontWithType(type: .regular, size: fontSize)
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+            }
+        }
+    }
+    
+    // MARK:+ FilmsScreen
+    struct FilmsScreen {
+        struct Navigationbar {
+            static var titleFont: UIFont {
+                var fontSize: CGFloat = 28
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swSemiBold, size: fontSize)
+            }
+            static var itemTextFont: UIFont {
+                var fontSize: CGFloat = 28
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+            }
+        }
+        static var refreshControlFont: UIFont {
+            return SWAppFont.fontWithType(type: .swRegular, size: 11)
+        }
+        struct FilmItemCell {
+            static var titleTextFont: UIFont {
+                var fontSize: CGFloat = 25
+                if isIPad() {
+                    fontSize = 22
+                }
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
+            }
+            static var detailsTextFont: UIFont {
+                var fontSize: CGFloat = 18
+                if isIPad() {
+                    fontSize = 18
+                }
+                let fontMultiplier = (scale > 1) ? (1 - (ratio/scale)) : 1
+                fontSize = fontMultiplier * fontSize
+                return SWAppFont.fontWithType(type: .light, size: fontSize)
             }
         }
     }

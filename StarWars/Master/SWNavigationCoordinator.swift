@@ -58,7 +58,7 @@ class SWNavigationCoordinator: NSObject {
                 self.mainNavigationController = self.mainStoryboard.instantiateViewController(withIdentifier: "SWMainNavigationController") as? SWNavigationController
                 self.mainSplitViewController = self.mainStoryboard.instantiateViewController(withIdentifier: "SWMainSplitViewController") as? SWSplitViewController
                 UIView.transition(with: appDelegate.window!, duration: 0.0, options: UIView.AnimationOptions.transitionCrossDissolve, animations: { () -> Void in
-                    self.appDelegate?.window?.rootViewController = self.mainSplitViewController
+                    self.appDelegate?.window?.rootViewController = self.mainNavigationController
                     self.appDelegate?.window?.makeKeyAndVisible()
                 }, completion: { _ in
                     completion?()

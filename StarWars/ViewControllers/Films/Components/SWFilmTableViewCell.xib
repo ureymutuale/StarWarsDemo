@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="174" id="KGk-i7-Jjw" customClass="SWFilmTableViewCell" customModule="StarWars" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="571" height="174"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="571" height="173.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfU-eO-9hf">
+                        <rect key="frame" x="3" y="3" width="565" height="167.5"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skS-y4-KEa" userLabel="Text Container View">
+                                <rect key="frame" x="0.0" y="5" width="565" height="157.5"/>
+                                <subviews>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hT-89-0ZG">
+                                        <rect key="frame" x="5" y="0.0" width="555" height="41"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Lorem Ipsum is simply">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="35" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-6i-GAZ">
+                                        <rect key="frame" x="5" y="41" width="555" height="15"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="2hT-89-0ZG" firstAttribute="trailing" secondItem="skS-y4-KEa" secondAttribute="trailing" constant="-5" id="3Yz-LK-0mG"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vQg-6i-GAZ" secondAttribute="bottom" id="Ecv-yi-Nts"/>
+                                    <constraint firstItem="vQg-6i-GAZ" firstAttribute="top" secondItem="2hT-89-0ZG" secondAttribute="bottom" id="RnR-xN-nNn"/>
+                                    <constraint firstItem="2hT-89-0ZG" firstAttribute="leading" secondItem="skS-y4-KEa" secondAttribute="leading" constant="5" id="bTI-sl-euE"/>
+                                    <constraint firstItem="2hT-89-0ZG" firstAttribute="leading" secondItem="vQg-6i-GAZ" secondAttribute="leading" id="eSa-Ca-1ha"/>
+                                    <constraint firstItem="2hT-89-0ZG" firstAttribute="trailing" secondItem="vQg-6i-GAZ" secondAttribute="trailing" id="rnH-le-2xq"/>
+                                    <constraint firstAttribute="top" secondItem="2hT-89-0ZG" secondAttribute="top" id="tbS-sH-vJX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="skS-y4-KEa" secondAttribute="bottom" constant="5" id="1hG-gX-PSX"/>
+                            <constraint firstAttribute="trailing" secondItem="skS-y4-KEa" secondAttribute="trailing" id="EvT-WY-u2g"/>
+                            <constraint firstItem="skS-y4-KEa" firstAttribute="leading" secondItem="gfU-eO-9hf" secondAttribute="leading" id="J9H-A9-mZI"/>
+                            <constraint firstItem="skS-y4-KEa" firstAttribute="top" secondItem="gfU-eO-9hf" secondAttribute="top" constant="5" id="JKM-KB-DmU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gfU-eO-9hf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="7aZ-W4-LLq"/>
+                    <constraint firstAttribute="bottom" secondItem="gfU-eO-9hf" secondAttribute="bottom" constant="3" id="AGC-z5-Kke"/>
+                    <constraint firstAttribute="trailing" secondItem="gfU-eO-9hf" secondAttribute="trailing" constant="3" id="Ipx-cX-qSo"/>
+                    <constraint firstItem="gfU-eO-9hf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="iSw-GW-ZoG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="gfU-eO-9hf" id="H6n-Og-kvw"/>
+                <outlet property="detailsLabel" destination="vQg-6i-GAZ" id="LRb-RY-v9e"/>
+                <outlet property="titleLabel" destination="2hT-89-0ZG" id="auE-3s-Kmj"/>
+            </connections>
+            <point key="canvasLocation" x="97" y="81"/>
+        </tableViewCell>
+    </objects>
+</document>
