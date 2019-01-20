@@ -53,6 +53,9 @@ class SWCharacterCollectionViewCell: UICollectionViewCell {
         self.containerView.backgroundColor = UIColor.clear
         
         self.cardViewSetup()
+        
+        self.nameLabel.textColor = SWAppColor.FilmDetailsScreen.CharactersContainer.CharacterItemCell.nameTextColor
+        self.nameLabel.font = SWAppFont.FilmDetailsScreen.CharactersContainer.CharacterItemCell.nameTextFont
     }
     fileprivate func cardViewSetup() {
         DispatchQueue.main.async(execute: {

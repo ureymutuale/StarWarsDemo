@@ -173,7 +173,11 @@ class SWAppFont: NSObject {
                 return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
             }
             struct CharacterItemCell {
-                struct SelectionView {
+                static var nameTextFont: UIFont {
+                    var fontSize: CGFloat = 16
+                    let fontMultiplier = (scale > 1) ? (1 - (ratio/(scale))) : 1
+                    fontSize = fontMultiplier * fontSize
+                    return SWAppFont.fontWithType(type: .swRegular, size: fontSize)
                 }
             }
         }

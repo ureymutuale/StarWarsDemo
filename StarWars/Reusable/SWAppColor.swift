@@ -185,6 +185,9 @@ class SWAppColor: NSObject {
                 static var borderColor: UIColor {
                     return UIColor.clear
                 }
+                static var nameTextColor: UIColor {
+                    return themeLightColor
+                }
             }
         }
         static var statusBarStyle: UIStatusBarStyle {
