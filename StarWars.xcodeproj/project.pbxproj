@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0EC29D375AB95E04027DF69B /* Pods_StarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1487BC1EF74C1AD6E0D601B /* Pods_StarWars.framework */; };
 		CC07162121F33E690067F1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07162021F33E690067F1AD /* AppDelegate.swift */; };
-		CC07162321F33E690067F1AD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07162221F33E690067F1AD /* MasterViewController.swift */; };
-		CC07162521F33E690067F1AD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07162421F33E690067F1AD /* DetailViewController.swift */; };
 		CC07162821F33E690067F1AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC07162621F33E690067F1AD /* Main.storyboard */; };
 		CC07162A21F33E6B0067F1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC07162921F33E6B0067F1AD /* Assets.xcassets */; };
 		CC07162D21F33E6B0067F1AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC07162B21F33E6B0067F1AD /* LaunchScreen.storyboard */; };
@@ -104,8 +102,6 @@
 		C4AE5AB2BF64CF77A751FC3F /* Pods-StarWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.release.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars/Pods-StarWars.release.xcconfig"; sourceTree = "<group>"; };
 		CC07161D21F33E690067F1AD /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC07162021F33E690067F1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CC07162221F33E690067F1AD /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		CC07162421F33E690067F1AD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CC07162721F33E690067F1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC07162921F33E6B0067F1AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC07162C21F33E6B0067F1AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -305,8 +301,6 @@
 			children = (
 				CC344C4A21F4777100002460 /* Films */,
 				CC07165A21F344610067F1AD /* Splash Screen */,
-				CC07162221F33E690067F1AD /* MasterViewController.swift */,
-				CC07162421F33E690067F1AD /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -802,7 +796,6 @@
 				CC344BFF21F3DF8400002460 /* UINavigationController+Extension.swift in Sources */,
 				CC07164A21F341E20067F1AD /* SWAppColor.swift in Sources */,
 				CC07165421F3431F0067F1AD /* SWApp.swift in Sources */,
-				CC07162521F33E690067F1AD /* DetailViewController.swift in Sources */,
 				CC344C6621F5152500002460 /* SWCharacterCollectionViewCell.swift in Sources */,
 				CC07164221F340DE0067F1AD /* UIView+Extension.swift in Sources */,
 				CC344C2A21F407A300002460 /* SWIEntity.swift in Sources */,
@@ -819,7 +812,6 @@
 				CC07165C21F344780067F1AD /* SWSplashScreenViewController.swift in Sources */,
 				CC344C1F21F401EC00002460 /* SWEntity.swift in Sources */,
 				CC344C2E21F4083000002460 /* SWICharacter.swift in Sources */,
-				CC07162321F33E690067F1AD /* MasterViewController.swift in Sources */,
 				CC07164821F341DA0067F1AD /* SWAppFont.swift in Sources */,
 				CC344C0121F3DFBC00002460 /* UIButton+Extension.swift in Sources */,
 				CC344C2721F4073300002460 /* SWCharacterHelper.swift in Sources */,
