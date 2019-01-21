@@ -27,7 +27,7 @@ class SWFilmTableViewCell: UITableViewCell {
         self.applySubviewsAppearance()
     }
     deinit {
-        NSLog("\(NSStringFromClass(self.classForCoder)) deinit")
+        
     }
     
     // MARK: + Overriden methods

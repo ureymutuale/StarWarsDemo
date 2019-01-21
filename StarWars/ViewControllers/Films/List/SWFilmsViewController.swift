@@ -91,8 +91,12 @@ class SWFilmsViewController: SWViewController {
         super.viewWillLayoutSubviews()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SWAppSegue.SWFilmDetailsViewController {
-            if let film = sender as? SWFilm, let filmDetailsVc = segue.destination as? SWFilmDetailsViewController {
+        if segue.identifier == SWAppSegue.SWFilmDetailsViewController || segue.identifier == SWAppSegue.SWFilmDetailsViewControllerReplace {
+            var destinationVc: UIViewController? = segue.destination
+            if let nav = destinationVc as? UINavigationController, let firstVc = nav.topViewController as? SWFilmDetailsViewController {
+                destinationVc = firstVc
+            }
+            if let film = sender as? SWFilm, let filmDetailsVc = destinationVc as? SWFilmDetailsViewController {
                 filmDetailsVc.film = film
                 filmDetailsVc.view.backgroundColor = UIColor.white //Force Load View
             }
@@ -135,7 +139,7 @@ class SWFilmsViewController: SWViewController {
     fileprivate func setupNavigationBarItems() {
         var navigationItem: UINavigationItem? = self.navigationItem
         if let navItem = self.splitViewController?.navigationItem {
-            navigationItem = navItem
+            //navigationItem = navItem
         }
         navigationItem?.title = "Films"
         //Search
@@ -174,6 +178,9 @@ class SWFilmsViewController: SWViewController {
         DispatchQueue.main.async(execute: { () -> Void in
             self.filteredFilms = self.sortFilms(self.allFilms, sorting: self.sorting)
             self.filmsTableView.reloadData()
+            if let _ = self.splitViewController {
+                self.selectFilmAtIndexPath(self.selectedItemsIndexPath)
+            }
         })
     }
     fileprivate func sortFilms(_ films: [SWFilm], sorting: SWFilmSorting = .default) -> [SWFilm] {
@@ -235,7 +242,8 @@ class SWFilmsViewController: SWViewController {
             cell.setNeedsLayout()
             cell.layoutIfNeeded()
         }
-        self.performSegue(withIdentifier: SWAppSegue.SWFilmDetailsViewController, sender: film)
+        let segueId = self.splitViewController != nil ? SWAppSegue.SWFilmDetailsViewControllerReplace : SWAppSegue.SWFilmDetailsViewController
+        self.performSegue(withIdentifier: segueId, sender: film)
     }
     
     

@@ -138,7 +138,7 @@ class SWFilmDetailsViewController: SWViewController {
     fileprivate func setupNavigationBarItems() {
         var navigationItem: UINavigationItem? = self.navigationItem
         if let navItem = self.splitViewController?.navigationItem {
-            navigationItem = navItem
+//            navigationItem = navItem
         }
         navigationItem?.title = "Film Details"
         if let title = self.film?.title {
@@ -146,11 +146,12 @@ class SWFilmDetailsViewController: SWViewController {
         }
         let backImage = self.isPushed() ? UIImage(named: "icon_arrow_left") : UIImage(named: "icon_arrow_down")
         let backBarButton = UINavigationController.barButtonItemWithImage(backImage, color: SWAppColor.FilmsScreen.Navigationbar.itemTintColor, selectedColor: SWAppColor.FilmsScreen.Navigationbar.highlightedItemTintColor, size: CGSize(width: 30, height: 30), target: self, action: #selector(self.dismissCurrentViewController(_:)))
-        navigationItem?.leftBarButtonItem = backBarButton
         
         if let _ = self.splitViewController {
             navigationItem?.leftBarButtonItem = splitViewController?.displayModeButtonItem
             navigationItem?.leftItemsSupplementBackButton = true
+        } else if self.isModal() || self.isPushed() {
+            navigationItem?.leftBarButtonItem = backBarButton
         }
     }
     fileprivate func loadFilmDetails(forceRefresh: Bool = false) {
@@ -231,7 +232,7 @@ class SWFilmDetailsViewController: SWViewController {
             var details = ""
             var intro = ""
             if let _episodeId = self.film?.episodeId {
-                episode = "  Episode \(_episodeId)  "
+                episode = " Episode \(_episodeId) "
             }
             if let _title = self.film?.title {
                 title = _title
@@ -249,7 +250,7 @@ class SWFilmDetailsViewController: SWViewController {
             if let _intro = self.film?.openingCrawl {
                 intro = _intro
             }
-            self.episodeLabel.text = episode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            self.episodeLabel.text = episode
             self.titleLabel.text = title.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             self.detailsLabel.text = details.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             self.introLabel.text = intro.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)

@@ -113,12 +113,9 @@ class SWViewController: UIViewController {
         return UIInterfaceOrientationMask.portrait
     }
     public func forceViewControllerOrientation() {
-        if isLandscape() {
-            //            if self.isKindOfClass(LWNEditionTitleArticleDetailsViewController.classForCoder())
-            //                || self.isKindOfClass(LWNEditionTitleArticlesContainerViewController.classForCoder()) {
-            //                    let value = UIInterfaceOrientation.PortraitUpsideDown.rawValue
-            //                    UIDevice.currentDevice().setValue(value, forKey: "orientation")
-            //            }
+        if isIPad() && !isLandscape() {
+            let value = UIInterfaceOrientation.landscapeLeft.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
         }
     }
     

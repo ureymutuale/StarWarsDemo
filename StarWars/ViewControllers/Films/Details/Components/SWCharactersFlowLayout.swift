@@ -52,7 +52,7 @@ class SWCharactersFlowLayout: UICollectionViewFlowLayout {
         super.init()
     }
     deinit {
-        NSLog("\(NSStringFromClass(self.classForCoder)) deinit")
+        
     }
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

@@ -13,4 +13,7 @@ class SWAppSegue: NSObject {
     class var SWFilmDetailsViewController: String {
         return "showFilmDetails"
     }
+    class var SWFilmDetailsViewControllerReplace: String {
+        return "replaceFilmDetails"
+    }
 }
