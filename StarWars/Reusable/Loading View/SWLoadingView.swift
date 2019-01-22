@@ -58,7 +58,7 @@ class SWLoadingView: UIView {
         let spriteName = "loading2"
         let animationDuration = 0.8
         var spriteArray = [UIImage]()
-        for i in 0...9 {
+        for i in 0...22 {
             if let image = UIImage(named: "\(spriteName)\(i).gif") {
                 spriteArray.append(image)//.imageWithColor(SWAppColor.themeSecondaryColor))
             }
