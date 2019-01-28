@@ -119,46 +119,7 @@
                                                                         <attributes>
                                                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <font key="NSFont" size="35" name="HelveticaNeue"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0">
-                                                                                <tabStops>
-                                                                                    <textTab alignment="left" location="28">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="56">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="84">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="112">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="140">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="168">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="196">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="224">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="252">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="280">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="308">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                    <textTab alignment="left" location="336">
-                                                                                        <options/>
-                                                                                    </textTab>
-                                                                                </tabStops>
-                                                                            </paragraphStyle>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
@@ -357,10 +318,10 @@
     </scenes>
     <resources>
         <image name="bg_poster" width="768" height="431"/>
-        <image name="icon_darth-vader" width="256" height="256"/>
+        <image name="icon_darth-vader" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="irr-Ta-D0w"/>
+        <segue reference="4xy-Jh-N61"/>
         <segue reference="Lu5-f5-7WY"/>
         <segue reference="w2a-QD-Rp7"/>
     </inferredMetricsTieBreakers>
